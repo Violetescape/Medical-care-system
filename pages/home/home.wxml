@@ -1,0 +1,15 @@
+<view class="container">
+    <image class="header-image" src="/images/7b9a3dc4800b535125d113f4c63d0c5b.png"></image>
+  <view class="button-group">
+    <button class="button">自助建档</button>
+    <button class="button green">报销申请</button>
+  </view>
+  <view class="search-bar">
+    <input class="search-input" placeholder="报销查询" />
+  </view>
+  <view class="footer">
+    <view class="footer-item">首页</view>
+    <view class="footer-item active">报销</view>
+    <view class="footer-item">个人中心</view>
+  </view>
+</view>
