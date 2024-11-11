@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="header">
+    <text>报销查询</text>
+  </view>
+
+  <!-- Query Input Section -->
+  <view class="query-section">
+    <input placeholder="请输入报销ID" bindinput="onInputChange" />
+    <button bindtap="searchQuery">查询</button>
+  </view>
+
+  <!-- Results Section -->
+  <view class="results-section">
+    <block wx:for="{{queryResults}}" wx:key="id">
+      <view class="result-item">
+        <text class="result-title">报销ID: {{item.id}}</text>
+        <text class="result-status">状态: {{item.status}}</text>
+        <text class="result-date">申请日期: {{item.date}}</text>
+      </view>
+    </block>
+  </view>
+</view>

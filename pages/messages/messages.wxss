@@ -1,0 +1,36 @@
+/* pages/messages/messages.wxss */.container {
+  padding: 20rpx;
+  background-color: #f8f8f8;
+}
+
+.header {
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.messages-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-item {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  background-color: #ffffff;
+  margin-bottom: 10rpx;
+  border-radius: 8rpx;
+}
+
+.message-title {
+  font-size: 32rpx;
+  color: #333333;
+}
+
+.message-time {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 10rpx;
+}

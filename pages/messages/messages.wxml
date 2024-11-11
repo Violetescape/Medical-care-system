@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="header">
+    <text>消息中心</text>
+  </view>
+
+  <!-- Messages List -->
+  <view class="messages-list">
+    <block wx:for="{{messages}}" wx:key="id">
+      <view class="message-item" bindtap="viewMessage" data-id="{{item.id}}">
+        <text class="message-title">{{item.title}}</text>
+        <text class="message-time">{{item.time}}</text>
+      </view>
+    </block>
+  </view>
+</view>
