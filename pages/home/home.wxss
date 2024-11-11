@@ -1,47 +1,32 @@
-/* pages/home/home.wxss */.container {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20rpx;
 }
 
 .banner {
   width: 100%;
-  height: 300rpx;
-  background-color: #e0e0e0; /* Placeholder background */
+  height: 200rpx; /* 控制 banner 的高度 */
+  margin-bottom: 100rpx; /* 增加与 options 的间距 */
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
 }
 
 .options {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  margin-top: 20rpx;
+  padding: 20rpx 0;
 }
 
 .option {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 25%;
-  padding: 10rpx;
-}
-
-.navbar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  background-color: #f8f8f8;
-  padding: 10rpx 0;
-}
-
-.nav-button {
-  flex: 1;
+  width: 40%;
+  padding: 20rpx;
   text-align: center;
-  font-size: 32rpx;
-}
-
-.active {
-  color: blue;
+  border-radius: 8rpx;
+  background-color: #f0f0f0;
 }
