@@ -1,6 +1,18 @@
 <view class="container">
-  <!-- Banner Placeholder -->
-  <view class="banner"></view>
+  <!-- Banner Section -->
+  <view class="banner">
+    <swiper autoplay="true" interval="3000" duration="500" indicator-dots="true" circular="true">
+      <swiper-item>
+        <image src="../../images/banner1.jpg" class="banner-image" mode="aspectFill"></image>
+      </swiper-item>
+      <swiper-item>
+        <image src="../../images/banner2.jpg" class="banner-image" mode="aspectFill"></image>
+      </swiper-item>
+      <swiper-item>
+        <image src="../../images/banner3.jpg" class="banner-image" mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+  </view>
 
   <!-- Options Section -->
   <view class="options">

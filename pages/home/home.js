@@ -1,4 +1,10 @@
 Page({
+  data: {
+    bannerImages: [
+      { src: "../../images/banner1.jpg" },
+      { src: "../../images/banner2.jpg" },
+    ]
+  },
   goToRecord() {
     wx.navigateTo({
       url: '/pages/record/record'
