@@ -10,9 +10,11 @@
       <input placeholder="请输入报销金额" bindinput="onAmountChange" />
     </view>
     <view class="form-item">
-      <text>报销日期</text>
-      <input placeholder="选择日期" type="date" bindinput="onDateChange" />
-    </view>
+  <text>报销日期</text>
+  <picker mode="date" bindchange="onDateChange">
+    <view class="picker">{{ date || '选择日期' }}</view>
+  </picker>
+</view>
     <view class="form-item">
       <text>备注</text>
       <input placeholder="请输入备注" bindinput="onNoteChange" />

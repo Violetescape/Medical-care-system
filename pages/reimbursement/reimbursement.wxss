@@ -36,3 +36,10 @@ button {
   border-radius: 8rpx;
   text-align: center;
 }
+.picker {
+    width: 100%;
+    padding: 10rpx;
+    border: 1px solid #dddddd;
+    border-radius: 8rpx;
+    text-align: center;
+  }
