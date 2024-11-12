@@ -4,6 +4,12 @@
     <view class="avatar-placeholder">头像</view>
     <text class="user-name">用户名: {{userName}}</text>
     <text class="user-id">用户ID: {{userId}}</text>
+    <!-- Login Option -->
+    <view class="profile-options">
+      <view class="option-item" bindtap="navigateToLogin">
+        <text>登录</text>
+      </view>
+    </view>
   </view>
 
   <!-- Profile Options -->

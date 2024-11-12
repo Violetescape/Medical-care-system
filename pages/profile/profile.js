@@ -31,8 +31,21 @@ Page({
             icon: "success"
           });
           // Implement logout logic here if needed
+          // 例如，清除本地存储的用户信息
+          wx.removeStorageSync('userInfo');
+          // 导航回首页或其他页面
+          wx.reLaunch({
+            url: '/pages/home/home'
+          });
         }
       }
     });
+  },
+
+  // 添加导航到登录页面的方法
+  navigateToLogin() {
+    wx.navigateTo({
+      url: '/pages/login/login'
+    });
   }
-})
+});

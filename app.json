@@ -1,12 +1,12 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/login/login",
     "pages/record/record",
     "pages/reimbursement/reimbursement",
     "pages/inquiry/inquiry",
     "pages/messages/messages",
-    "pages/profile/profile",
-    "pages/reimbursementDetail/reimbursementDetail"
+    "pages/profile/profile"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
