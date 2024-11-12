@@ -3,6 +3,7 @@ Page({
     bannerImages: [
       { src: "../../images/banner1.jpg" },
       { src: "../../images/banner2.jpg" },
+      { src: "../../images/banner3.jpg" },
     ]
   },
   goToRecord() {
