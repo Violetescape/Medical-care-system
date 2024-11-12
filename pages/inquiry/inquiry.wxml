@@ -3,20 +3,26 @@
     <text>报销查询</text>
   </view>
 
-  <!-- Query Input Section -->
-  <view class="query-section">
-    <input placeholder="请输入报销ID" bindinput="onInputChange" />
-    <button bindtap="searchQuery">查询</button>
+  <!-- 查询 ID 输入框 -->
+  <input type="text" placeholder="请输入查询 ID" value="{{queryId}}" bindinput="onQueryIdChange" />
+
+  <!-- 查询按钮 -->
+  <button bindtap="queryReimbursement">查询</button>
+
+  <!-- 查询结果 -->
+  <view wx:if="{{reimbursement}}">
+    <view class="result">
+      <text>申请人：{{reimbursement.name}}</text>
+      <text>部门：{{reimbursement.department}}</text>
+      <text>报销金额：{{reimbursement.amount}}</text>
+      <text>报销类型：{{reimbursement.expenseType}}</text>
+      <text>报销时间：{{reimbursement.date}}</text>
+      <text>状态：{{statusMessage}}</text>
+    </view>
   </view>
 
-  <!-- Results Section -->
-  <view class="results-section">
-    <block wx:for="{{queryResults}}" wx:key="id">
-      <view class="result-item">
-        <text class="result-title">报销ID: {{item.id}}</text>
-        <text class="result-status">状态: {{item.status}}</text>
-        <text class="result-date">申请日期: {{item.date}}</text>
-      </view>
-    </block>
+  <!-- 没有结果时的提示 -->
+  <view wx:if="{{!reimbursement && queryId}}">
+    <text>未找到该报销申请，请确认查询 ID 是否正确。</text>
   </view>
 </view>
