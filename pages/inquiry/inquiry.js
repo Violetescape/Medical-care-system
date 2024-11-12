@@ -1,19 +1,16 @@
 Page({
   data: {
-    queryId: "",        // 用户输入的查询 ID
-    reimbursement: null, // 查询到的报销申请信息
-    statusMessage: ""    // 显示的状态信息
+    queryId: "",
+    reimbursement: null,
+    statusMessage: ""
   },
 
-  // 监听查询 ID 输入变化
   onQueryIdChange(event) {
     this.setData({ queryId: event.detail.value });
   },
 
-  // 查询报销申请
   queryReimbursement() {
     const queryId = this.data.queryId.trim();
-
     if (!queryId) {
       wx.showToast({
         title: "请输入查询 ID",
@@ -26,21 +23,16 @@ Page({
     db.collection('Reimbursement_Requests').doc(queryId).get()
       .then(res => {
         if (res.data) {
-          const reimbursement = res.data;
-          const statusMessages = {
-            "submitted": "已提交，等待审核",
-            "in_review": "审核中",
-            "approved": "申请已批准",
-            "rejected": "申请已拒绝"
-          };
-          const statusMessage = statusMessages[reimbursement.status] || "未知状态";
-          this.setData({ reimbursement, statusMessage });
+          // 查询成功后清空数据并跳转到报销详情页面
+          this.setData({ reimbursement: null, statusMessage: "" });
+          wx.navigateTo({
+            url: `/pages/reimbursementDetail/reimbursementDetail?queryId=${queryId}`
+          });
         } else {
           wx.showToast({
-            title: "未找到该报销申请",
+            title: "未找到该报销记录",
             icon: "none"
           });
-          this.setData({ reimbursement: null, statusMessage: "" });
         }
       })
       .catch(err => {
@@ -48,8 +40,7 @@ Page({
           title: "查询失败，请检查 ID 是否正确",
           icon: "none"
         });
-        console.error('查询报销申请失败', err);
-        this.setData({ reimbursement: null, statusMessage: "" });
+        console.error('查询报销记录失败', err);
       });
   }
 });

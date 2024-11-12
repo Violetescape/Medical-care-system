@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="header">
+    <text>报销详情</text>
+  </view>
+
+  <view wx:if="{{reimbursement}}">
+    <view class="detail-item"><text>申请人：{{reimbursement.name}}</text></view>
+    <view class="detail-item"><text>部门：{{reimbursement.department}}</text></view>
+    <view class="detail-item"><text>金额：{{reimbursement.amount}}</text></view>
+    <view class="detail-item"><text>类型：{{reimbursement.expenseType}}</text></view>
+    <view class="detail-item"><text>备注：{{reimbursement.note}}</text></view>
+    <view class="detail-item"><text>状态：{{reimbursement.status}}</text></view>
+    <view class="detail-item"><text>日期：{{reimbursement.date}}</text></view>
+  </view>
+
+  <view wx:else>
+    <text>未找到报销记录，请检查查询 ID 是否正确。</text>
+  </view>
+</view>
