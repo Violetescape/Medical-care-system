@@ -1,6 +1,7 @@
 Page({
   data: {
-    reimbursement: null // 存储报销的详细信息
+    reimbursement: null,
+    reimbursementStatus: 0 // 用于表示报销的当前状态
   },
 
   onLoad(options) {
@@ -16,7 +17,10 @@ Page({
     db.collection('Reimbursement_Requests').doc(queryId).get()
       .then(res => {
         if (res.data) {
-          this.setData({ reimbursement: res.data });
+          this.setData({
+            reimbursement: res.data,
+            reimbursementStatus: res.data.status // status 为1-3分别表示流程的状态
+          });
         } else {
           wx.showToast({
             title: "未找到该报销记录",

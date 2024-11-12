@@ -1,19 +1,40 @@
 <view class="container">
+  <!-- 页面标题 -->
   <view class="header">
-    <text>报销详情</text>
+    <text class="header-text">报销详情</text>
   </view>
 
+  <!-- 报销进度条 -->
+  <view class="progress-bar">
+    <!-- 提交申请 -->
+    <view class="step {{reimbursementStatus >= 1 ? 'completed' : ''}}">
+      <view class="circle">1</view>
+      <text class="label">提交申请</text>
+      <view class="check-icon" wx:if="{{reimbursementStatus >= 1}}">✔</view>
+    </view>
+
+    <!-- 管理员审核 -->
+    <view class="step {{reimbursementStatus >= 2 ? 'completed' : ''}}">
+      <view class="circle">2</view>
+      <text class="label">管理员审核</text>
+      <view class="check-icon" wx:if="{{reimbursementStatus >= 2}}">✔</view>
+    </view>
+
+    <!-- 报销成功 -->
+    <view class="step {{reimbursementStatus >= 3 ? 'completed' : ''}}">
+      <view class="circle">3</view>
+      <text class="label">报销成功</text>
+      <view class="check-icon" wx:if="{{reimbursementStatus >= 3}}">✔</view>
+    </view>
+  </view>
+
+  <!-- 详细信息展示 -->
   <view wx:if="{{reimbursement}}">
     <view class="detail-item"><text>申请人：{{reimbursement.name}}</text></view>
     <view class="detail-item"><text>部门：{{reimbursement.department}}</text></view>
     <view class="detail-item"><text>金额：{{reimbursement.amount}}</text></view>
     <view class="detail-item"><text>类型：{{reimbursement.expenseType}}</text></view>
     <view class="detail-item"><text>备注：{{reimbursement.note}}</text></view>
-    <view class="detail-item"><text>状态：{{reimbursement.status}}</text></view>
     <view class="detail-item"><text>日期：{{reimbursement.date}}</text></view>
-  </view>
-
-  <view wx:else>
-    <text>未找到报销记录，请检查查询 ID 是否正确。</text>
   </view>
 </view>
