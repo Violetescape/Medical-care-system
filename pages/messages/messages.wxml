@@ -3,12 +3,12 @@
     <text>消息中心</text>
   </view>
 
-  <!-- Messages List -->
+  <!-- 消息列表 -->
   <view class="messages-list">
-    <block wx:for="{{messages}}" wx:key="id">
-      <view class="message-item" bindtap="viewMessage" data-id="{{item.id}}">
-        <text class="message-title">{{item.title}}</text>
-        <text class="message-time">{{item.time}}</text>
+    <block wx:for="{{messages}}" wx:key="*this">
+      <view class="message-item">
+        <text class="message-text">{{item.text}}</text>
+        <text class="message-time">{{item.formattedTime}}</text>
       </view>
     </block>
   </view>
