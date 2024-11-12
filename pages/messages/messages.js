@@ -1,9 +1,3 @@
-// 格式化时间戳为可读的日期格式
-function formatTime(timestamp) {
-  const date = new Date(timestamp);
-  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
-}
-
 Page({
   data: {
     messages: []
@@ -13,17 +7,19 @@ Page({
     this.fetchMessages();
   },
 
+  // 获取消息列表数据的函数
   fetchMessages() {
+    // 显示加载中动画
+    wx.showLoading({
+      title: '加载中...'
+    });
+
     const db = wx.cloud.database();
-    db.collection('Messages').where({
-      _openid: 'oXLfs65lwsgZ9gJTLLZiO8usZ73o'  // 替换为测试用户的 OpenID
-    })
-    .orderBy('timestamp', 'desc')
-    .get()
+    db.collection('Messages').orderBy('timestamp', 'desc').get()
       .then(res => {
         const messages = res.data.map(item => ({
           ...item,
-          formattedTime: formatTime(item.timestamp)
+          formattedTime: this.formatTime(item.timestamp)
         }));
         this.setData({ messages });
       })
@@ -33,6 +29,29 @@ Page({
           icon: "none"
         });
         console.error('数据库查询失败', err);
+      })
+      .finally(() => {
+        // 隐藏加载中动画
+        wx.hideLoading();
       });
+  },
+
+  // 格式化时间
+  formatTime(timestamp) {
+    const date = new Date(timestamp);
+    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
+  },
+
+  // 下拉刷新时触发
+  onPullDownRefresh() {
+    this.fetchMessages(); // 重新获取消息列表
+    wx.stopPullDownRefresh(); // 停止下拉刷新动画
+  },
+
+  viewMessage(event) {
+    const messageId = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `/pages/messageDetail/messageDetail?id=${messageId}`
+    });
   }
 });
