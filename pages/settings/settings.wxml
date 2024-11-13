@@ -11,14 +11,4 @@
       <switch checked="{{isNotificationEnabled}}" bindchange="toggleNotification"></switch>
     </view>
   </view>
-
-  <!-- 语言选择设置 -->
-  <view class="settings-card">
-    <view class="setting-item">
-      <text>语言</text>
-      <picker mode="selector" range="{{languageOptions}}" bindchange="onLanguageChange">
-        <view class="picker">{{selectedLanguage}}</view>
-      </picker>
-    </view>
-  </view>
 </view>

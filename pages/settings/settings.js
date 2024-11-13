@@ -1,7 +1,6 @@
 Page({
   data: {
     isNotificationEnabled: false,
-    languageOptions: ['简体中文', 'English', '日本語'],
     selectedLanguage: '简体中文'
   },
 
