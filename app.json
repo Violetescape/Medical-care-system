@@ -6,7 +6,8 @@
     "pages/reimbursement/reimbursement",
     "pages/inquiry/inquiry",
     "pages/messages/messages",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/historyRecords/historyRecords"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

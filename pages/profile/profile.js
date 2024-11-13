@@ -20,6 +20,12 @@ Page({
     // You could add navigation to a settings page here
   },
 
+  navigateToHistory() {
+    wx.navigateTo({
+      url: "/pages/historyRecords/historyRecords"
+    });
+  },
+
   logout() {
     wx.showModal({
       title: "确认退出",
