@@ -11,9 +11,7 @@
     </view>
     <view class="form-item">
       <text>报销日期</text>
-      <picker mode="date" bindchange="onDateChange">
-        <view class="picker">{{ date || '选择日期' }}</view>
-      </picker>
+      <view class="picker">{{ date }}</view>
     </view>
     <view class="form-item">
       <text>职工号</text>

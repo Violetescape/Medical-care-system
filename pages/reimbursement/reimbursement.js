@@ -1,7 +1,7 @@
 Page({
   data: {
     amount: "",
-    date: "",
+    date: "", // 用于存储当前日期
     note: "",
     employeeId: "",
     name: "",
@@ -10,12 +10,17 @@ Page({
     expenseTypeOptions: ['校内就诊', '校外就诊'] // 费用类型选项
   },
 
-  onAmountChange(event) {
-    this.setData({ amount: event.detail.value });
+  onLoad() {
+    // 获取今天的日期
+    const today = new Date();
+    const formattedDate = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
+    this.setData({
+      date: formattedDate // 将今天的日期设置为默认值
+    });
   },
 
-  onDateChange(event) {
-    this.setData({ date: event.detail.value });
+  onAmountChange(event) {
+    this.setData({ amount: event.detail.value });
   },
 
   onNoteChange(event) {
@@ -39,7 +44,7 @@ Page({
   },
 
   submitApplication() {
-    if (!this.data.amount || !this.data.date || !this.data.employeeId || !this.data.name || !this.data.department || !this.data.expenseType) {
+    if (!this.data.amount || !this.data.employeeId || !this.data.name || !this.data.department || !this.data.expenseType) {
       wx.showToast({
         title: "请填写所有必填项",
         icon: "none"
@@ -50,13 +55,13 @@ Page({
     const db = wx.cloud.database();
     const dataToAdd = {
       amount: this.data.amount,
-      date: this.data.date,
+      date: this.data.date, // 自动填充的当前日期
       note: this.data.note,
       employeeId: this.data.employeeId,
       name: this.data.name,
       department: this.data.department,
       expenseType: this.data.expenseType,
-      status: 1 // 状态字段，1表示“待审核”
+      status: 1 // 保持数值化状态字段，1表示“待审核”
     };
 
     db.collection('Reimbursement_Requests').add({
@@ -71,7 +76,7 @@ Page({
         // 清空表单数据
         this.setData({
           amount: "",
-          date: "",
+          date: this.data.date, // 保持为当前日期
           note: "",
           employeeId: "",
           name: "",
