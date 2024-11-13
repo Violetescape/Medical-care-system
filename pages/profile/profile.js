@@ -19,15 +19,6 @@ Page({
     }
   },
 
-  // 用户点击查看个人信息时的处理函数
-  viewPersonalInfo() {
-    wx.showToast({
-      title: "查看个人信息",
-      icon: "none"
-    });
-    // 可以在这里添加跳转到个人信息详细页面的逻辑
-  },
-
   // 用户点击进入设置时的处理函数
   viewSettings() {
     wx.navigateTo({

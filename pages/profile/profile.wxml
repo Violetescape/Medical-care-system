@@ -1,7 +1,19 @@
 <view class="container">
+  <!-- 用户信息模块，位于最上方 -->
+  <view wx:if="{{isLoggedIn}}" class="user-info-module">
+    <!-- 默认显示一个圆圈，圆圈内显示“头像”文字 -->
+    <view class="avatar-placeholder">
+      <text class="avatar-text">头像</text> <!-- 显示文字“头像” -->
+    </view>
+    
+    <view class="user-info-details">
+      <text class="user-info-title">{{userName}}</text>
+      <text class="user-info-subtitle">职工信息或其他内容</text>
+    </view>
+  </view>
+
   <!-- Profile Options -->
   <view class="profile-options">
-    <!-- 判断是否已登录 -->
     <view wx:if="{{!userInfo}}" class="option-item login-button" bindtap="navigateToLogin">
       <text>登录</text> <!-- 登录按钮 -->
     </view>
@@ -10,7 +22,6 @@
       <text>报销历史</text> <!-- 报销历史 -->
     </view>
 
-    <!-- 新增绑定职工信息按钮，只有登录后显示 -->
     <view wx:if="{{isLoggedIn}}" class="option-item" bindtap="bindEmployeeInfo">
       <text>绑定职工信息</text> <!-- 绑定职工信息按钮 -->
     </view>
