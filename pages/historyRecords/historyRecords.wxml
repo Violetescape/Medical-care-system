@@ -1,35 +1,58 @@
 <view class="container">
-  <!-- 页面标题 -->
-  <view class="header">
-    <text class="header-text">报销历史记录</text>
-  </view>
-
-  <!-- 筛选条件 -->
-  <view class="filters">
-    <!-- 报销类型选择 -->
-    <picker mode="selector" range="{{expenseTypeOptions}}" bindchange="onExpenseTypeChange">
-      <view class="picker">报销类型：{{expenseTypeOptions[expenseTypeIndex]}}</view>
-    </picker>
-
-    <!-- 报销状态选择 -->
-    <picker mode="selector" range="{{statusOptions}}" bindchange="onStatusChange">
-      <view class="picker">状态：{{statusOptions[statusIndex]}}</view>
-    </picker>
-  </view>
-
-  <!-- 报销记录列表 -->
-  <block wx:for="{{filteredRecords}}" wx:key="id">
-    <view class="record-item">
-      <text>申请人：{{item.name}}</text>
-      <text>金额：{{item.amount}}</text>
-      <text>报销类型：{{item.expenseType}}</text>
-      <text>状态：{{item.status === 2 ? '审核通过' : item.status === 3 ? '审核拒绝' : '待审核'}}</text>
-      <text>日期：{{item.date}}</text>
+  <!-- 筛选模块 -->
+  <view class="filter-section">
+    <view class="header">
+      <text class="header-text">筛选条件</text>
     </view>
-  </block>
 
-  <!-- 没有记录时的提示 -->
-  <view wx:if="{{filteredRecords.length === 0}}" class="no-records">
-    <text>没有符合条件的报销记录</text>
+    <!-- 筛选条件 -->
+    <view class="filters">
+      <!-- 报销类型选择 -->
+      <picker mode="selector" range="{{expenseTypeOptions}}" bindchange="onExpenseTypeChange">
+        <view class="picker">报销类型：{{expenseTypeOptions[expenseTypeIndex]}}</view>
+      </picker>
+
+      <!-- 报销状态选择 -->
+      <picker mode="selector" range="{{statusOptions}}" bindchange="onStatusChange">
+        <view class="picker">状态：{{statusOptions[statusIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 报销记录模块 -->
+  <view class="records-section">
+    <view class="header">
+      <text class="header-text">报销记录</text>
+    </view>
+
+    <block wx:for="{{filteredRecords}}" wx:key="id">
+      <view class="record-card">
+        <view class="record-row">
+          <text class="field-name">申请人：</text>
+          <text class="field-value">{{item.name}}</text>
+        </view>
+        <view class="record-row">
+          <text class="field-name">金额：</text>
+          <text class="field-value">{{item.amount}} 元</text>
+        </view>
+        <view class="record-row">
+          <text class="field-name">报销类型：</text>
+          <text class="field-value">{{item.expenseType}}</text>
+        </view>
+        <view class="record-row">
+          <text class="field-name">状态：</text>
+          <text class="field-value">{{item.status === 2 ? '审核通过' : item.status === 3 ? '审核拒绝' : '待审核'}}</text>
+        </view>
+        <view class="record-row">
+          <text class="field-name">日期：</text>
+          <text class="field-value">{{item.date}}</text>
+        </view>
+      </view>
+    </block>
+
+    <!-- 没有记录时的提示 -->
+    <view wx:if="{{filteredRecords.length === 0}}" class="no-records">
+      <text>没有符合条件的报销记录</text>
+    </view>
   </view>
 </view>
