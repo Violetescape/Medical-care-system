@@ -13,11 +13,9 @@ Page({
   },
 
   viewSettings() {
-    wx.showToast({
-      title: "进入设置",
-      icon: "none"
+    wx.navigateTo({
+      url: "/pages/settings/settings"
     });
-    // You could add navigation to a settings page here
   },
 
   navigateToHistory() {

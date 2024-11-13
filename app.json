@@ -7,7 +7,8 @@
     "pages/inquiry/inquiry",
     "pages/messages/messages",
     "pages/profile/profile",
-    "pages/historyRecords/historyRecords"
+    "pages/historyRecords/historyRecords",
+    "pages/settings/settings"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
