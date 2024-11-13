@@ -1,16 +1,21 @@
 <!-- login.wxml -->
 <view class="container">
   <!-- 登录按钮 -->
-  <button class="login-button" bindtap="login">微信登录</button>
+  <button class="login-button" bindtap="login" wx:if="{{!isLogging}}">微信登录</button>
+  
+  <!-- 显示登录中的加载动画 -->
+  <view wx:if="{{isLogging}}" class="loading">
+    <text>登录中...</text>
+  </view>
 
   <!-- 显示用户信息 -->
   <view wx:if="{{hasUserInfo}}">
-    <text>欢迎，{{userInfo.nickName}}</text>
+    <text class="welcome-text">欢迎，{{userInfo.nickName}}</text>
     <image src="{{userInfo.avatarUrl}}" class="avatar"></image>
   </view>
 
   <!-- 未获取到用户信息时显示提示 -->
   <view wx:else>
-    <text>请点击上面按钮进行微信登录</text>
+    <text class="text-info">请点击上面按钮进行微信登录</text>
   </view>
 </view>
