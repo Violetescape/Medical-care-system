@@ -2,7 +2,8 @@ Page({
   data: {
     userName: '',  // 用户名
     avatarUrl: '', // 头像
-    userInfo: null  // 存储用户信息
+    userInfo: null,  // 存储用户信息
+    isLoggedIn: false  // 用于判断是否登录
   },
 
   onLoad: function () {
@@ -12,7 +13,8 @@ Page({
       this.setData({
         userName: userInfo.userName,
         avatarUrl: userInfo.avatarUrl,
-        userInfo: userInfo
+        userInfo: userInfo, // 将用户信息存储到 data 中
+        isLoggedIn: true  // 标记为已登录
       });
     }
   },
@@ -33,14 +35,11 @@ Page({
     });
   },
 
+  // 用户点击报销历史时的处理函数
   navigateToHistory() {
     wx.navigateTo({
       url: "/pages/historyRecords/historyRecords"
     });
-<<<<<<< HEAD
-    // 可以在这里添加跳转到设置页面的逻辑
-=======
->>>>>>> 19adbfc5df846a74ee22112a49ef91d35224f526
   },
 
   // 用户点击退出登录时的处理函数
@@ -62,7 +61,8 @@ Page({
           this.setData({
             userName: '',
             avatarUrl: '',
-            userInfo: null
+            userInfo: null,
+            isLoggedIn: false  // 更新为未登录状态
           });
 
           // 导航回首页或登录页面
@@ -78,6 +78,13 @@ Page({
   navigateToLogin() {
     wx.navigateTo({
       url: '/pages/login/login'  // 修改为你的登录页面路径
+    });
+  },
+
+  // 用户点击绑定职工信息按钮时的处理函数
+  bindEmployeeInfo() {
+    wx.navigateTo({
+      url: '/pages/bindInfo/bindInfo'  // 绑定职工信息页面路径
     });
   }
 });

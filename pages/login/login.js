@@ -20,36 +20,19 @@ Page({
               // 获取 openid 和 session_key
               const { openid, session_key } = response.result;
 
-              // 保存用户信息到云数据库
-              const db = wx.cloud.database();
-              const userCollection = db.collection('users');  // 选择集合
+              // 假设这里的用户信息存储到本地
+              const userInfo = {
+                openid: openid,
+                userName: '默认昵称',  // 默认昵称
+                avatarUrl: '默认头像链接'  // 默认头像链接
+              };
 
-              // 保存用户数据到数据库
-              userCollection.add({
-                data: {
-                  openid: openid,
-                  session_key: session_key,
-                  userName: '默认昵称',  // 你可以根据需要设置默认的昵称
-                  avatarUrl: '默认头像链接',  // 默认头像链接
-                  loginTime: new Date()  // 登录时间
-                },
-                success: res => {
-                  console.log('用户信息保存成功', res);
-                  // 保存用户信息到本地存储
-                  wx.setStorageSync('userInfo', {
-                    openid: openid,
-                    userName: '默认昵称',
-                    avatarUrl: '默认头像链接'
-                  });
+              // 保存用户信息到本地存储
+              wx.setStorageSync('userInfo', userInfo);
 
-                  // 登录成功后跳转到首页或其他页面
-                  wx.reLaunch({
-                    url: '/pages/home/home'  // 这里修改为你的主页面路径
-                  });
-                },
-                fail: err => {
-                  console.error('保存用户信息失败', err);
-                }
+              // 登录成功后跳转到 bindInfo 页面
+              wx.reLaunch({
+                url: '/pages/bindInfo/bindInfo'  // 跳转到绑定信息页面
               });
             },
             fail: function(error) {
