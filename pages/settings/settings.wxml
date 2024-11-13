@@ -1,0 +1,14 @@
+<view class="container">
+  <!-- 设置标题 -->
+  <view class="header">
+    <text class="header-text">设置</text>
+  </view>
+
+  <!-- 通知设置 -->
+  <view class="settings-card">
+    <view class="setting-item">
+      <text>消息通知</text>
+      <switch checked="{{isNotificationEnabled}}" bindchange="toggleNotification"></switch>
+    </view>
+  </view>
+</view>

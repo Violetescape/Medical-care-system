@@ -55,7 +55,8 @@ Page({
       employeeId: this.data.employeeId,
       name: this.data.name,
       department: this.data.department,
-      expenseType: this.data.expenseType
+      expenseType: this.data.expenseType,
+      status: 1 // 状态字段，1表示“待审核”
     };
 
     db.collection('Reimbursement_Requests').add({
@@ -95,7 +96,7 @@ Page({
   createMessage(reimbursementId) {
     const db = wx.cloud.database();
     const messageData = {
-      text: `您的报销申请已提交成功，查询 ID 为：${reimbursementId}`,
+      text: `您的报销申请已提交成功，查询 ID 为：${reimbursementId}，当前状态：待审核`,
       timestamp: Date.now()
     };
 

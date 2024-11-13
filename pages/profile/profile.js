@@ -28,11 +28,19 @@ Page({
 
   // 用户点击进入设置时的处理函数
   viewSettings() {
-    wx.showToast({
-      title: "进入设置",
-      icon: "none"
+    wx.navigateTo({
+      url: "/pages/settings/settings"
     });
+  },
+
+  navigateToHistory() {
+    wx.navigateTo({
+      url: "/pages/historyRecords/historyRecords"
+    });
+<<<<<<< HEAD
     // 可以在这里添加跳转到设置页面的逻辑
+=======
+>>>>>>> 19adbfc5df846a74ee22112a49ef91d35224f526
   },
 
   // 用户点击退出登录时的处理函数

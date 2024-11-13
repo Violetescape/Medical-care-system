@@ -1,0 +1,66 @@
+.container {
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.filter-section, .records-section {
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.header-text {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.picker {
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.record-card {
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fafafa;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.record-row {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.field-name {
+  font-weight: bold;
+  color: #333;
+  flex-basis: 30%;
+}
+
+.field-value {
+  color: #555;
+  flex-basis: 70%;
+}
+
+.no-records {
+  text-align: center;
+  color: #999;
+  font-size: 16px;
+  margin-top: 20px;
+}
