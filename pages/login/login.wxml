@@ -2,6 +2,7 @@
 <view class="container">
   <!-- 登录按钮 -->
   <button class="login-button" bindtap="login" wx:if="{{!isLogging}}">微信登录</button>
+  <button class="admin-login-button" bindtap="adminLogin">管理员登录</button>
   
   <!-- 显示登录中的加载动画 -->
   <view wx:if="{{isLogging}}" class="loading">

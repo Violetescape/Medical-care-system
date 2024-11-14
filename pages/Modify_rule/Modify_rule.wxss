@@ -1,0 +1,28 @@
+/* app.wxss 或 index.wxss */
+.rules-container {
+    padding: 20px;
+  }
+  
+  .rule-text {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .input-container {
+    margin-bottom: 10px;
+  }
+  
+  .input-container text {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .submit-button {
+    margin-top: 20px;
+    background-color: #1AAD19;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+  }
