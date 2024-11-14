@@ -1,0 +1,35 @@
+<!-- pages/Request_detail/Request_detail.wxml -->
+<view class="detail-container">
+  <view class="detail-item">
+    <text class="detail-label">申请ID:</text>
+    <text class="detail-value">{{requestDetails._id}}</text>
+  </view>
+  <view class="detail-item">
+    <text class="detail-label">姓名:</text>
+    <text class="detail-value">{{requestDetails.name}}</text>
+  </view>
+  <view class="detail-item">
+    <text class="detail-label">职工号:</text>
+    <text class="detail-value">{{requestDetails.employeeId}}</text>
+  </view>
+  <view class="detail-item">
+    <text class="detail-label">所属部门:</text>
+    <text class="detail-value">{{requestDetails.department}}</text>
+  </view>
+  <view class="detail-item">
+    <text class="detail-label">费用类型:</text>
+    <text class="detail-value">{{requestDetails.expenseType}}</text>
+  </view>
+  <view class="detail-item">
+    <text class="detail-label">报销金额:</text>
+    <text class="detail-value">{{requestDetails.amount}}</text>
+  </view>
+  <view class="detail-item">
+    <text class="detail-label">报销日期:</text>
+    <text class="detail-value">{{requestDetails.date}}</text>
+  </view>
+  <view class="detail-item">
+    <text class="detail-label">备注:</text>
+    <text class="detail-value">{{requestDetails.note}}</text>
+  </view>
+</view>

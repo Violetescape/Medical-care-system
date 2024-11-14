@@ -63,3 +63,33 @@
   color: #666;
   margin-top: 15px;
 }
+
+/* 管理员登录按钮样式 */
+.admin-login-button {
+    width: 70%;
+    padding: 15px 20px;
+    background-color: #007bff; /* 深蓝色背景 */
+    color: white;
+    border: none;
+    border-radius: 5px; /* 圆角按钮 */
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer; /* 鼠标悬停时显示指针 */
+    transition: all 0.3s ease;
+    outline: none; /* 去除点击时的轮廓线 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    margin-top: 20px; /* 与其他元素保持一定距离 */
+  }
+  
+  /* 鼠标悬停时按钮效果 */
+  .admin-login-button:hover {
+    background-color: #0056b3; /* 鼠标悬停时颜色变深 */
+    transform: translateY(-2px); /* 鼠标悬停时向上移动 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 鼠标悬停时阴影加深 */
+  }
+  
+  /* 鼠标点击时按钮效果 */
+  .admin-login-button:active {
+    transform: translateY(2px); /* 点击时向下移动 */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* 点击时阴影变浅 */
+  }

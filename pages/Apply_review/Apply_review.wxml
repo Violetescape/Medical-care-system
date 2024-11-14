@@ -1,0 +1,11 @@
+<!-- pages/Apply_review/Apply_review.wxml -->
+<view class="requests-container">
+  <block wx:for="{{requests}}" wx:key="_id">
+    <view class="request-item" bindtap="viewRequestDetails" data-id="{{item._id}}">
+      <text class="request-id">申请ID: {{item._id}}</text>
+      <text class="request-summary">摘要: {{item.summary}}</text>
+      <!-- 可以根据需要添加更多显示的字段 -->
+    </view>
+    <view class="separator"></view>
+  </block>
+</view>

@@ -1,0 +1,29 @@
+/* Administrators/Administrators.wxss */
+.admin-container {
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .input-container {
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="number"] {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-left: 10px;
+    width: 200px;
+  }
+  
+  .submit-button {
+    padding: 15px;
+    background-color: #1aad19;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-top: 20px;
+  }

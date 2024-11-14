@@ -1,0 +1,27 @@
+/* pages/Apply_review/Apply_review.wxss */
+.requests-container {
+    padding: 20px;
+  }
+  
+  .request-item {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .request-id {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .request-summary {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .separator {
+    height: 1px;
+    background-color: #eee;
+    margin: 10px 0;
+  }
