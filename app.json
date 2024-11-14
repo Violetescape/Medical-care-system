@@ -16,6 +16,7 @@
     "pages/Children/Children",
     "pages/Approval_history/Approval_history",
     "pages/profile/profile",
+    "pages/View_Child_information/View_Child_information",
     "pages/historyRecords/historyRecords",
     "pages/settings/settings"
   ],

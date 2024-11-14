@@ -16,6 +16,6 @@
   <block wx:if="{{showOperationButtons}}">
     <button class="submit-button" bindtap="modifyReimbursementRules">修改报销规则</button>
     <button class="submit-button" bindtap="approveReimbursement">报销申请审批</button>
-    <button class="submit-button" bindtap="viewApprovalHistory">报销记录</button>
+    <button class="submit-button" bindtap="viewApprovalHistory">审批记录</button>
   </block>
 </view>

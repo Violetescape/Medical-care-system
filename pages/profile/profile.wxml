@@ -33,6 +33,10 @@
       <text>绑定子女信息</text>
     </view>
 
+    <view class="option-item" bindtap="navigateToViewChildrenInfo">
+     <text>查看子女信息</text> <!-- 查看子女信息按钮 -->
+    </view>
+
     <view class="option-item" bindtap="viewSettings">
       <text>设置</text> <!-- 设置按钮 -->
     </view>

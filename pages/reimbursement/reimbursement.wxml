@@ -15,12 +15,22 @@
     </view>
     <view class="form-item">
       <text>职工号</text>
-      <input placeholder="请输入职工号" bindinput="onEmployeeIdChange" />
+      <view class="picker">{{ employeeId }}</view>
     </view>
     <view class="form-item">
       <text>姓名</text>
-      <input placeholder="请输入姓名" bindinput="onNameChange" />
+      <picker mode="selector" range="{{familyMembers}}" bindchange="onNameChange">
+        <view class="picker">{{ name || '选择姓名' }}</view>
+      </picker>
     </view>
+
+    <view class="form-item">
+  <text>报销人员类型</text>
+  <picker mode="selector" range="{{reimbursementTypeOptions}}" bindchange="onReimbursementTypeChange">
+    <view class="picker">{{ reimbursementType || '选择报销人员类型' }}</view>
+  </picker>
+</view>
+
     <view class="form-item">
       <text>所属部门</text>
       <input placeholder="请输入所属部门" bindinput="onDepartmentChange" />
