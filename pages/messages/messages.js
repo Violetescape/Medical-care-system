@@ -30,8 +30,8 @@ Page({
       });
   },
 
-   // Pull down to refresh
-   onPullDownRefresh() {
+  // Pull down to refresh
+  onPullDownRefresh() {
     this.fetchMessages();
     wx.stopPullDownRefresh(); // Stop the pull-down refresh animation
   },
@@ -65,23 +65,36 @@ Page({
     this.startX = 0; // Reset starting position
   },
 
-  // Long press to enable batch delete mode
-  onLongPress(event) {
-    const messageId = event.currentTarget.dataset.id;
+  // Enter batch delete mode
+  enterBatchDeleteMode() {
     this.setData({ batchDeleteMode: true });
-    this.toggleSelection(messageId); // Start with selected message
   },
 
-  // Toggle selection in batch mode
-  toggleSelection(event) {
+  // Long press to copy query ID from the text field
+  onLongPress(event) {
     const messageId = event.currentTarget.dataset.id;
-    const updatedMessages = this.data.messages.map(item => {
-      if (item._id === messageId) {
-        item.isSelected = !item.isSelected;
+    const message = this.data.messages.find(item => item._id === messageId);
+    
+    if (message && message.text) {
+      // Extract query ID from text, assuming it's in the format "查询 ID 为：<ID>"
+      const queryIdMatch = message.text.match(/查询 ID 为：([\w]+)/);
+      if (queryIdMatch && queryIdMatch[1]) {
+        const queryId = queryIdMatch[1];
+
+        // Copy query ID to clipboard
+        wx.setClipboardData({
+          data: queryId,
+          success: () => {
+            wx.showToast({ title: '查询ID已复制', icon: 'success' });
+          },
+          fail: () => {
+            wx.showToast({ title: '复制失败', icon: 'none' });
+          }
+        });
+      } else {
+        wx.showToast({ title: '未找到查询ID', icon: 'none' });
       }
-      return item;
-    });
-    this.setData({ messages: updatedMessages });
+    }
   },
 
   // Delete a single message with swipe-to-delete
