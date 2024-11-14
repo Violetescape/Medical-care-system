@@ -53,6 +53,12 @@
   margin-top: 10rpx;
 }
 
+/* 用户信息模块点击效果 */
+.user-info-module:active {
+  transform: scale(0.98); /* 点击时缩小幅度 */
+  box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.2); /* 按下时的阴影效果 */
+}
+
 /* 功能模块 */
 .profile-options {
   display: flex;
@@ -114,7 +120,6 @@
 .login-button text {
   line-height: 80rpx; /* 让文本垂直居中 */
 }
-
 
 /* 绑定职工信息按钮 */
 .bind-employee-info {

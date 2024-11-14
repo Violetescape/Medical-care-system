@@ -3,6 +3,7 @@
     "pages/home/home",
     "pages/login/login",
     "pages/bindInfo/bindInfo",
+    "pages/profileInfo/profileInfo",
     "pages/record/record",
     "pages/reimbursement/reimbursement",
     "pages/inquiry/inquiry",
