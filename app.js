@@ -1,8 +1,5 @@
 // app.js
 App({
-  globalData: {
-    userInfo: null,  // 存储全局的用户信息
-  },
   onLaunch: function () {
     // 小程序启动之后触发
     wx.cloud.init({

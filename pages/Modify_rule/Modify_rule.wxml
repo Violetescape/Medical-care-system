@@ -1,13 +1,30 @@
-<!-- pages/Modify_rule/index.wxml -->
 <view class="rules-container">
-  <text class="rule-text">{{currentRules}}</text>
-  <view class="input-container">
-    <text>修改报销额度：</text>
-    <input type="number" placeholder="请输入新的报销额度" bindinput="updateNewAmountReimbursement" />
+  <!-- 上半区：职工报销规则 -->
+  <view class="half-container">
+    <text class="rule-text">{{currentEmployeeRules}}</text>
+    <view class="input-container">
+      <text>修改职工报销额度：</text>
+      <input type="number" placeholder="请输入新的职工报销额度" bindinput="updateNewEmployeeAmountReimbursement" />
+    </view>
+    <view class="input-container">
+      <text>修改职工报销百分比：</text>
+      <input type="number" placeholder="请输入新的职工报销百分比" bindinput="updateNewEmployeeExcessReimbursementRatio" />
+    </view>
   </view>
-  <view class="input-container">
-    <text>修改报销百分比：</text>
-    <input type="number" placeholder="请输入新的报销百分比" bindinput="updateNewExcessReimbursementRatio" />
+  
+  <!-- 下半区：子女报销规则 -->
+  <view class="half-container">
+    <text class="rule-text">{{currentChildrenRules}}</text>
+    <view class="input-container">
+      <text>修改子女报销额度：</text>
+      <input type="number" placeholder="请输入新的子女报销额度" bindinput="updateNewChildrenAmountReimbursement" />
+    </view>
+    <view class="input-container">
+      <text>修改子女报销百分比：</text>
+      <input type="number" placeholder="请输入新的子女报销百分比" bindinput="updateNewChildrenExcessReimbursementRatio" />
+    </view>
   </view>
+  
+  <!-- 更新按钮 -->
   <button class="submit-button" bindtap="updateReimbursementRules">更新报销规则</button>
 </view>

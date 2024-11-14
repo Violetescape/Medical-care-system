@@ -65,6 +65,9 @@ Page({
               wx.showToast({
                 title: '头像更新成功',
                 icon: 'success'
+              })
+
+
               });
             },
             fail: (err) => {

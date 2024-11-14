@@ -1,23 +1,24 @@
-// pages/Apply_review/Apply_review.js
 Page({
     data: {
-      requests: [], // 存储报销申请列表
+      pendingRequests: [], // 存储待审批的报销申请列表（status = 1）
     },
   
     onLoad: function() {
-      this.fetchReimbursementRequests();
+      this.fetchPendingReimbursementRequests();
     },
   
-    fetchReimbursementRequests: function() {
+    fetchPendingReimbursementRequests: function() {
       const db = wx.cloud.database();
-      db.collection('Reimbursement_Requests').get({
+      db.collection('Reimbursement_Requests').where({
+        status: 1 // 只查询待审批的申请，即status为1的记录
+      }).get({
         success: res => {
-          this.setData({ requests: res.data });
+          this.setData({ pendingRequests: res.data });
         },
         fail: err => {
           console.error(err);
           wx.showToast({
-            title: '获取报销申请失败',
+            title: '获取待审批报销申请失败',
             icon: 'none'
           });
         }

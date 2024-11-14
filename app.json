@@ -13,6 +13,8 @@
     "pages/Modify_rule/Modify_rule",
     "pages/Apply_review/Apply_review",
     "pages/Request_detail/Request_detail",
+    "pages/Children/Children",
+    "pages/Approval_history/Approval_history",
     "pages/profile/profile",
     "pages/historyRecords/historyRecords",
     "pages/settings/settings"

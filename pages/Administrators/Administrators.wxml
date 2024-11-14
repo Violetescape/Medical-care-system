@@ -1,4 +1,3 @@
-<!-- Administrators/Administrators.wxml -->
 <view class="admin-container">
   <!-- 登录界面 -->
   <block wx:if="{{showLogin}}">
@@ -17,5 +16,6 @@
   <block wx:if="{{showOperationButtons}}">
     <button class="submit-button" bindtap="modifyReimbursementRules">修改报销规则</button>
     <button class="submit-button" bindtap="approveReimbursement">报销申请审批</button>
+    <button class="submit-button" bindtap="viewApprovalHistory">报销记录</button>
   </block>
 </view>

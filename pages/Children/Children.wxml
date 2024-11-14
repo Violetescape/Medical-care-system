@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="form-item">
+    <text>姓名：</text>
+    <input type="text" placeholder="请输入姓名" bindinput="bindNameInput"/>
+  </view>
+  
+  <view class="form-item">
+    <text>身份证号：</text>
+    <input type="text" placeholder="请输入身份证号" bindinput="bindIDInput"/>
+  </view>
+  
+  <button bindtap="submitInfo">绑定</button>
+</view>
