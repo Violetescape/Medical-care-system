@@ -65,93 +65,90 @@ Page({
               wx.showToast({
                 title: '头像更新成功',
                 icon: 'success'
-              })
-
-
-              });
-            },
-            fail: (err) => {
-              console.error('头像更新失败', err);
-              wx.showToast({
-                title: '头像更新失败，请重试',
-                icon: 'none'
-              });
-            }
+            });
+        },
+        fail: (err) => {
+          console.error('头像更新失败', err);
+          wx.showToast({
+            title: '头像更新失败，请重试',
+            icon: 'none'
           });
-        } else {
-          console.error('用户记录不存在');
         }
-      }).catch(err => {
-        console.error('查询用户信息失败', err);
-        wx.showToast({
-          title: '查询失败，请重试',
-          icon: 'none'
-        });
       });
     } else {
-      console.error('未找到 openid');
+      console.error('用户记录不存在');
+    }
+  }).catch(err => {
+    console.error('查询用户信息失败', err);
+    wx.showToast({
+      title: '查询失败，请重试',
+      icon: 'none'
+    });
+  });
+} else {
+  console.error('未找到 openid');
+  wx.showToast({
+    title: '用户未登录',
+    icon: 'none'
+  });
+}
+},
+
+// 其他功能代码保持不变...
+
+viewSettings() {
+wx.navigateTo({
+  url: "/pages/settings/settings"
+});
+},
+
+navigateToHistory() {
+wx.navigateTo({
+  url: "/pages/historyRecords/historyRecords"
+});
+},
+
+logout() {
+wx.showModal({
+  title: "确认退出",
+  content: "您确定要退出登录吗？",
+  success: (res) => {
+    if (res.confirm) {
       wx.showToast({
-        title: '用户未登录',
-        icon: 'none'
+        title: "已退出",
+        icon: "success"
+      });
+
+      // 清除本地存储中的用户信息
+      wx.removeStorageSync('userInfo');
+
+      // 清空页面上的用户信息
+      this.setData({
+        userName: '',
+        avatarUrl: '/images/0.png', // 退出后重置为默认头像
+        userInfo: null,
+        isLoggedIn: false,  // 更新为未登录状态
+        department: ''  // 清空部门信息
+      });
+
+      // 导航回首页或登录页面
+      wx.reLaunch({
+        url: '/pages/home/home'  // 修改为你希望跳转的页面
       });
     }
-  },
-
-  // 其他功能代码保持不变...
-
-  viewSettings() {
-    wx.navigateTo({
-      url: "/pages/settings/settings"
-    });
-  },
-
-  navigateToHistory() {
-    wx.navigateTo({
-      url: "/pages/historyRecords/historyRecords"
-    });
-  },
-
-  logout() {
-    wx.showModal({
-      title: "确认退出",
-      content: "您确定要退出登录吗？",
-      success: (res) => {
-        if (res.confirm) {
-          wx.showToast({
-            title: "已退出",
-            icon: "success"
-          });
-
-          // 清除本地存储中的用户信息
-          wx.removeStorageSync('userInfo');
-
-          // 清空页面上的用户信息
-          this.setData({
-            userName: '',
-            avatarUrl: '/images/0.png', // 退出后重置为默认头像
-            userInfo: null,
-            isLoggedIn: false,  // 更新为未登录状态
-            department: ''  // 清空部门信息
-          });
-
-          // 导航回首页或登录页面
-          wx.reLaunch({
-            url: '/pages/home/home'  // 修改为你希望跳转的页面
-          });
-        }
-      }
-    });
-  },
-
-  navigateToLogin() {
-    wx.navigateTo({
-      url: '/pages/login/login'  // 修改为你的登录页面路径
-    });
-  },
-
-  bindEmployeeInfo() {
-    wx.navigateTo({
-      url: '/pages/bindInfo/bindInfo'  // 绑定职工信息页面路径
-    });
   }
+});
+},
+
+navigateToLogin() {
+wx.navigateTo({
+  url: '/pages/login/login'  // 修改为你的登录页面路径
+});
+},
+
+bindEmployeeInfo() {
+wx.navigateTo({
+  url: '/pages/bindInfo/bindInfo'  // 绑定职工信息页面路径
+});
+}
 });
