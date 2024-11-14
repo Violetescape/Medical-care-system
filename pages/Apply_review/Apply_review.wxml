@@ -1,11 +1,12 @@
-<!-- pages/Apply_review/Apply_review.wxml -->
 <view class="requests-container">
-  <block wx:for="{{requests}}" wx:key="_id">
-    <view class="request-item" bindtap="viewRequestDetails" data-id="{{item._id}}">
-      <text class="request-id">申请ID: {{item._id}}</text>
-      <text class="request-summary">摘要: {{item.summary}}</text>
-      <!-- 可以根据需要添加更多显示的字段 -->
-    </view>
-    <view class="separator"></view>
-  </block>
+  <view class="requests-section">
+    <text class="section-title">待审批的申请</text>
+    <block wx:for="{{pendingRequests}}" wx:key="_id">
+      <view class="request-item" bindtap="viewRequestDetails" data-id="{{item._id}}">
+        <text class="request-id">申请ID: {{item._id}}</text>
+        <!-- 可以根据需要添加更多显示的字段 -->
+      </view>
+      <view class="separator"></view>
+    </block>
+  </view>
 </view>

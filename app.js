@@ -1,5 +1,10 @@
 // app.js
 App({
+    globalData: {
+      newRecordId: null // 用于存储新增记录的 _id
+    }
+  })
+App({
   onLaunch: function () {
     // 小程序启动之后 触发
     wx.cloud.init({

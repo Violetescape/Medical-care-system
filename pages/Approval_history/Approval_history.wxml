@@ -1,0 +1,22 @@
+<view class="requests-container">
+  <view class="requests-section">
+    <text class="section-title">审批通过的申请</text>
+    <block wx:for="{{approvedRequests}}" wx:key="_id">
+      <view class="request-item" bindtap="viewRequestDetails" data-id="{{item._id}}">
+        <text class="request-id">申请ID: {{item._id}}</text>
+        <!-- 可以根据需要添加更多显示的字段 -->
+      </view>
+      <view class="separator"></view>
+    </block>
+  </view>
+  <view class="requests-section">
+    <text class="section-title">审批不通过的申请</text>
+    <block wx:for="{{rejectedRequests}}" wx:key="_id">
+      <view class="request-item" bindtap="viewRequestDetails" data-id="{{item._id}}">
+        <text class="request-id">申请ID: {{item._id}}</text>
+        <!-- 可以根据需要添加更多显示的字段 -->
+      </view>
+      <view class="separator"></view>
+    </block>
+  </view>
+</view>

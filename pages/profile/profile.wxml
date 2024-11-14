@@ -1,9 +1,7 @@
 <view class="container">
   <!-- 用户信息模块，位于最上方 -->
   <view wx:if="{{isLoggedIn}}" class="user-info-module" bindtap="navigateToProfileInfo">
-
     <view class="avatar-placeholder">
-
     </view>
     
     <view class="user-info-details">
@@ -24,6 +22,11 @@
 
     <view wx:if="{{isLoggedIn}}" class="option-item" bindtap="bindEmployeeInfo">
       <text>绑定职工信息</text> <!-- 绑定职工信息按钮 -->
+    </view>
+
+    <!-- 新增绑定子女信息选项 -->
+    <view wx:if="{{isLoggedIn}}" class="option-item" bindtap="navigateToChildrenInfo">
+      <text>绑定子女信息</text>
     </view>
 
     <view class="option-item" bindtap="viewSettings">

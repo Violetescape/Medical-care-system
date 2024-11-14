@@ -20,11 +20,12 @@
       <view class="check-icon" wx:if="{{reimbursementStatus >= 2}}">✔</view>
     </view>
 
-    <!-- 报销成功 -->
-    <view class="step {{reimbursementStatus >= 3 ? 'completed' : ''}}">
-      <view class="circle">3</view>
-      <text class="label">报销成功</text>
-      <view class="check-icon" wx:if="{{reimbursementStatus >= 3}}">✔</view>
+    <!-- 报销结果 -->
+    <view class="step {{reimbursementStatus == 3 ? 'completed' : (reimbursementStatus == 2 ? 'failed' : '')}}">
+      <view class="circle">{{reimbursementStatus == 3 ? '3' : (reimbursementStatus == 2 ? '×' : '')}}</view>
+      <text class="label">{{reimbursementStatus == 3 ? '报销成功' : (reimbursementStatus == 2 ? '报销失败' : '报销成功')}}</text>
+      <view class="check-icon" wx:if="{{reimbursementStatus == 3}}">✔</view>
+      <view class="cross-icon" wx:if="{{reimbursementStatus == 2}}">✖</view>
     </view>
   </view>
 

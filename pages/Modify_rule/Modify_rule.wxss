@@ -1,10 +1,15 @@
-/* app.wxss 或 index.wxss */
 .rules-container {
+    display: flex;
+    flex-direction: column;
     padding: 20px;
   }
   
-  .rule-text {
+  .half-container {
     margin-bottom: 20px;
+  }
+  
+  .rule-text {
+    margin-bottom: 10px;
     font-size: 16px;
     color: #333;
   }
