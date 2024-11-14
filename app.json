@@ -6,6 +6,7 @@
     "pages/profileInfo/profileInfo",
     "pages/record/record",
     "pages/reimbursement/reimbursement",
+    "pages/reimbursementDetail/reimbursementDetail",
     "pages/inquiry/inquiry",
     "pages/messages/messages",
     "pages/Administrators/Administrators",
