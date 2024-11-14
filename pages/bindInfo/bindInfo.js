@@ -1,8 +1,9 @@
 Page({
   data: {
-    employeeId: '', // 职工号
+    employeeId: '',  // 职工号
     userName: '',    // 姓名
     department: '',  // 部门
+    avatarUrl: '/images/0.png',  // 默认头像路径
   },
 
   // 页面加载时，获取用户信息
@@ -14,17 +15,18 @@ Page({
       this.setData({
         employeeId: userInfo.employeeId || '',
         userName: userInfo.userName || '',
-        department: userInfo.department || ''
+        department: userInfo.department || '未设置部门',  // 确保部门显示默认值
+        avatarUrl: userInfo.avatarUrl || '/images/0.png'  // 设置头像 URL
       });
     }
   },
 
   // 用户点击提交按钮时的处理函数
   bindUserInfo: function () {
-    const { employeeId, userName, department } = this.data;
+    const { employeeId, userName, department, avatarUrl } = this.data;
 
     // 检查输入的职工号、姓名和部门是否完整
-    if (!employeeId || !userName || !department) {
+    if (!employeeId || !userName || !department || department === '未设置部门') {
       wx.showToast({
         title: '请填写完整信息',
         icon: 'none'
@@ -43,21 +45,26 @@ Page({
       return;
     }
 
+    // 获取用户的 openid
+    const openid = userInfo.openid;
+
     // 获取数据库实例
     const db = wx.cloud.database();
     const userCollection = db.collection('users'); // 选择 user 集合
 
-    // 检查数据库中是否已存在该职工号
+    // 查询数据库中是否已存在该 openid
     userCollection.where({
-      employeeId: employeeId
+      openid: openid
     }).get({
       success: (res) => {
         if (res.data.length > 0) {
-          // 如果职工号已存在，更新信息
+          // 如果该 openid 已经绑定信息，更新该用户的 employeeId 和 avatarUrl
           userCollection.doc(res.data[0]._id).update({
             data: {
+              employeeId: employeeId,
               userName: userName,
               department: department,
+              avatarUrl: avatarUrl,  // 添加头像 URL 字段
               bindTime: new Date()  // 记录更新时间
             },
             success: () => {
@@ -65,9 +72,11 @@ Page({
 
               // 保存绑定信息到本地存储
               wx.setStorageSync('userInfo', {
+                ...userInfo,
                 employeeId: employeeId,
                 userName: userName,
-                department: department
+                department: department,
+                avatarUrl: avatarUrl  // 保存头像 URL
               });
 
               // 提示保存成功
@@ -90,12 +99,14 @@ Page({
             }
           });
         } else {
-          // 如果职工号不存在，新增记录
+          // 如果该 openid 不存在，新增记录
           userCollection.add({
             data: {
+              openid: openid,  // 添加 openid 字段
               employeeId: employeeId,
               userName: userName,
               department: department,
+              avatarUrl: avatarUrl || '/images/0.png',  // 添加默认头像 URL
               bindTime: new Date()  // 记录绑定时间
             },
             success: (res) => {
@@ -103,9 +114,11 @@ Page({
 
               // 保存绑定信息到本地存储
               wx.setStorageSync('userInfo', {
+                ...userInfo,
                 employeeId: employeeId,
                 userName: userName,
-                department: department
+                department: department,
+                avatarUrl: avatarUrl || '/images/0.png'  // 保存头像 URL
               });
 
               // 提示保存成功
