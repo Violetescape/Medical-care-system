@@ -19,6 +19,20 @@ Page({
     }
   },
 
+  // 用户点击个人信息时的处理函数
+  navigateToProfileInfo() {
+    if (this.data.isLoggedIn) {
+      wx.navigateTo({
+        url: '/pages/profileInfo/profileInfo'  // 个人信息页面路径
+      });
+    } else {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none'
+      });
+    }
+  },
+
   // 用户点击进入设置时的处理函数
   viewSettings() {
     wx.navigateTo({

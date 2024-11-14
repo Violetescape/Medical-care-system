@@ -1,0 +1,14 @@
+<view class="profile">
+  <!-- 头像选择 -->
+  <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+    <image class="avatar" src="{{avatarUrl}}" alt="头像"></image>
+  </button>
+
+  <!-- 昵称输入 -->
+  <input type="nickname" class="nickname-input" placeholder="请输入昵称" value="{{nickname}}" bindinput="onNicknameInput"/>
+
+  <!-- 昵称显示 -->
+  <view class="nickname-display">
+    <text>昵称：{{nickname}}</text>
+  </view>
+</view>

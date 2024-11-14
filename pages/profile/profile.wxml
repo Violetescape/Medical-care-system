@@ -1,9 +1,9 @@
 <view class="container">
   <!-- 用户信息模块，位于最上方 -->
-  <view wx:if="{{isLoggedIn}}" class="user-info-module">
-    <!-- 默认显示一个圆圈，圆圈内显示“头像”文字 -->
+  <view wx:if="{{isLoggedIn}}" class="user-info-module" bindtap="navigateToProfileInfo">
+
     <view class="avatar-placeholder">
-      <text class="avatar-text">头像</text> <!-- 显示文字“头像” -->
+
     </view>
     
     <view class="user-info-details">
