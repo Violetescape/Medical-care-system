@@ -1,0 +1,13 @@
+<!-- pages/Modify_rule/index.wxml -->
+<view class="rules-container">
+  <text class="rule-text">{{currentRules}}</text>
+  <view class="input-container">
+    <text>修改报销额度：</text>
+    <input type="number" placeholder="请输入新的报销额度" bindinput="updateNewAmountReimbursement" />
+  </view>
+  <view class="input-container">
+    <text>修改报销百分比：</text>
+    <input type="number" placeholder="请输入新的报销百分比" bindinput="updateNewExcessReimbursementRatio" />
+  </view>
+  <button class="submit-button" bindtap="updateReimbursementRules">更新报销规则</button>
+</view>

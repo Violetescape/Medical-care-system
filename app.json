@@ -8,6 +8,10 @@
     "pages/reimbursement/reimbursement",
     "pages/inquiry/inquiry",
     "pages/messages/messages",
+    "pages/Administrators/Administrators",
+    "pages/Modify_rule/Modify_rule",
+    "pages/Apply_review/Apply_review",
+    "pages/Request_detail/Request_detail",
     "pages/profile/profile",
     "pages/historyRecords/historyRecords",
     "pages/settings/settings"
