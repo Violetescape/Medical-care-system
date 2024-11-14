@@ -1,34 +1,37 @@
 <view class="container">
-  <!-- Profile Header with User Info -->
-  <view class="profile-header">
-    <view class="avatar-placeholder">头像</view>
-    <text class="user-name">用户名: {{userName}}</text>
-    <text class="user-id">用户ID: {{userId}}</text>
-
-    <!-- Login Option -->
-    <view class="profile-options">
-      <view class="option-item" bindtap="navigateToLogin">
-        <text>登录</text>
-      </view>
+  <!-- 用户信息模块，位于最上方 -->
+  <view wx:if="{{isLoggedIn}}" class="user-info-module">
+    <!-- 默认显示一个圆圈，圆圈内显示“头像”文字 -->
+    <view class="avatar-placeholder">
+      <text class="avatar-text">头像</text> <!-- 显示文字“头像” -->
+    </view>
+    
+    <view class="user-info-details">
+      <text class="user-info-title">{{userName}}</text>
+      <text class="user-info-subtitle">职工信息或其他内容</text>
     </view>
   </view>
 
   <!-- Profile Options -->
   <view class="profile-options">
-    <view class="option-item" bindtap="viewPersonalInfo">
-      <text>个人信息</text>
+    <view wx:if="{{!userInfo}}" class="option-item login-button" bindtap="navigateToLogin">
+      <text>登录</text> <!-- 登录按钮 -->
     </view>
 
-    <view class="option-item" bindtap="navigateToHistory">
-      <text>报销历史</text>
+    <view wx:else class="option-item" bindtap="navigateToHistory">
+      <text>报销历史</text> <!-- 报销历史 -->
+    </view>
+
+    <view wx:if="{{isLoggedIn}}" class="option-item" bindtap="bindEmployeeInfo">
+      <text>绑定职工信息</text> <!-- 绑定职工信息按钮 -->
     </view>
 
     <view class="option-item" bindtap="viewSettings">
-      <text>设置</text>
+      <text>设置</text> <!-- 设置按钮 -->
     </view>
 
     <view class="option-item" bindtap="logout">
-      <text>退出登录</text>
+      <text>退出登录</text> <!-- 退出登录按钮 -->
     </view>
   </view>
 </view>
