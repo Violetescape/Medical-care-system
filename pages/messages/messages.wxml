@@ -1,14 +1,35 @@
 <view class="container">
   <view class="header">
-    <text>消息中心</text>
+    <text class="header-text">消息中心</text>
   </view>
 
-  <!-- 消息列表 -->
-  <view class="messages-list">
+  <!-- Batch delete and cancel buttons, only shown in batch delete mode -->
+  <view class="batch-actions" wx:if="{{batchDeleteMode}}">
+    <button bindtap="deleteSelectedMessages" class="delete-selected-button">删除选中</button>
+    <button bindtap="cancelBatchDelete" class="cancel-button">取消</button>
+  </view>
+
+  <!-- Message list with conditional spacing for batch delete mode -->
+  <view class="messages-list {{batchDeleteMode ? 'batch-mode' : ''}}">
     <block wx:for="{{messages}}" wx:key="*this">
-      <view class="message-item">
-        <text class="message-text">{{item.text}}</text>
-        <text class="message-time">{{item.formattedTime}}</text>
+      <view class="message-item-wrapper">
+        <view class="message-item" 
+              style="transform: translateX({{item.translateX}}px);" 
+              data-id="{{item._id}}" 
+              bindtouchstart="onTouchStart" 
+              bindtouchmove="onTouchMove" 
+              bindtouchend="onTouchEnd" 
+              bindlongpress="onLongPress"> 
+
+          <view class="delete-button" bindtap="deleteMessage" data-id="{{item._id}}">删除</view>
+          
+          <!-- Message content with checkbox in batch mode -->
+          <view class="message-content">
+            <checkbox wx:if="{{batchDeleteMode}}" checked="{{item.isSelected}}" bindtap="toggleSelection" data-id="{{item._id}}" />
+            <text class="message-text">{{item.text}}</text>
+            <text class="message-time">{{item.formattedTime}}</text>
+          </view>
+        </view>
       </view>
     </block>
   </view>
