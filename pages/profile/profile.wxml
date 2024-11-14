@@ -1,14 +1,18 @@
 <view class="container">
   <!-- 用户信息模块，位于最上方 -->
-  <view wx:if="{{isLoggedIn}}" class="user-info-module" bindtap="navigateToProfileInfo">
+  <button wx:if="{{isLoggedIn}}" class="user-info-module" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+    
     <view class="avatar-placeholder">
+      <!-- 固定头像 -->
+      <image class="avatar" src="/images/0.png" mode="aspectFill"></image>
     </view>
     
     <view class="user-info-details">
       <text class="user-info-title">{{userName}}</text>
-      <text class="user-info-subtitle">职工信息或其他内容</text>
+      <!-- 显示职工部门 -->
+      <text class="user-info-subtitle">{{department || '未设置部门'}}</text> <!-- 如果没有设置部门显示"未设置部门" -->
     </view>
-  </view>
+  </button>
 
   <!-- Profile Options -->
   <view class="profile-options">

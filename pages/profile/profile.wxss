@@ -25,11 +25,12 @@
   align-items: center;
 }
 
-/* “头像”文字 */
-.avatar-text {
-  font-size: 36rpx;
-  color: #ffffff;
-  font-weight: bold;
+/* 固定头像显示为 0.png */
+.avatar-placeholder image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* 用户信息文本 */
@@ -37,6 +38,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: 20rpx;
 }
 
 /* 用户名 */
