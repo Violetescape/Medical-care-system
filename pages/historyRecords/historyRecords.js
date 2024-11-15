@@ -7,7 +7,6 @@ Page({
       statusOptions: ["全部", "待审核", "审核通过", "审核拒绝"], // 报销状态选项
       statusIndex: 0
     },
-  
     onLoad() {
       this.fetchAllRecords();
     },

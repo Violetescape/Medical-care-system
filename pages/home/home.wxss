@@ -46,4 +46,19 @@
   z-index: 999;
   font-weight: bold;
   font-size: 32rpx;
+/* 新增公告部分样式 */
+.announcement {
+  width: 90%; /* 与页面整体宽度保持协调 */
+  padding: 20rpx;
+  margin: 20rpx 0; /* 与其他部分留出间距 */
+  background-color: #fffae5; /* 使用浅黄色背景突出公告 */
+  border-left: 5rpx solid #ffa500; /* 左侧加一条突出色块 */
+  border-radius: 10rpx; /* 圆角边框 */
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1); /* 添加轻微阴影提升层次感 */
+}
+
+.announcement text {
+  font-size: 28rpx;
+  color: #333333; /* 深色字体提高可读性 */
+  line-height: 1.5;
 }
