@@ -18,9 +18,12 @@ Page({
       userCollection.where({ openid: userInfo.openid }).get().then(res => {
         if (res.data.length > 0) {
           const userData = res.data[0];
-          // 如果数据库中有信息，更新页面数据
+          // 如果数据库中有信息，更新页面数据和全局变量
+          const app = getApp(); // 获取全局实例
+          app.globalData.currentEmployeeId = userData._id; // 存储 _id 到全局变量
+          app.globalData.currentEmployeeName = userData.userName || '默认昵称';
           this.setData({
-            userName: userData.userName || '默认昵称',
+            userName: app.globalData.currentEmployeeName,
             department: userData.department || '未设置部门',
             avatarUrl: userInfo.avatarUrl || '/images/0.png', // 保留本地的头像 URL
             userInfo: userInfo,
@@ -65,90 +68,95 @@ Page({
               wx.showToast({
                 title: '头像更新成功',
                 icon: 'success'
-            });
-        },
-        fail: (err) => {
-          console.error('头像更新失败', err);
-          wx.showToast({
-            title: '头像更新失败，请重试',
-            icon: 'none'
+              });
+            },
+            fail: (err) => {
+              console.error('头像更新失败', err);
+              wx.showToast({
+                title: '头像更新失败，请重试',
+                icon: 'none'
+              });
+            }
           });
+        } else {
+          console.error('用户记录不存在');
         }
+      }).catch(err => {
+        console.error('查询用户信息失败', err);
+        wx.showToast({
+          title: '查询失败，请重试',
+          icon: 'none'
+        });
       });
     } else {
-      console.error('用户记录不存在');
-    }
-  }).catch(err => {
-    console.error('查询用户信息失败', err);
-    wx.showToast({
-      title: '查询失败，请重试',
-      icon: 'none'
-    });
-  });
-} else {
-  console.error('未找到 openid');
-  wx.showToast({
-    title: '用户未登录',
-    icon: 'none'
-  });
-}
-},
-
-// 其他功能代码保持不变...
-
-viewSettings() {
-wx.navigateTo({
-  url: "/pages/settings/settings"
-});
-},
-
-navigateToHistory() {
-wx.navigateTo({
-  url: "/pages/historyRecords/historyRecords"
-});
-},
-
-logout() {
-wx.showModal({
-  title: "确认退出",
-  content: "您确定要退出登录吗？",
-  success: (res) => {
-    if (res.confirm) {
+      console.error('未找到 openid');
       wx.showToast({
-        title: "已退出",
-        icon: "success"
-      });
-
-      // 清除本地存储中的用户信息
-      wx.removeStorageSync('userInfo');
-
-      // 清空页面上的用户信息
-      this.setData({
-        userName: '',
-        avatarUrl: '/images/0.png', // 退出后重置为默认头像
-        userInfo: null,
-        isLoggedIn: false,  // 更新为未登录状态
-        department: ''  // 清空部门信息
-      });
-
-      // 导航回首页或登录页面
-      wx.reLaunch({
-        url: '/pages/home/home'  // 修改为你希望跳转的页面
+        title: '用户未登录',
+        icon: 'none'
       });
     }
+  },
+
+  // 新增的查看子女信息的处理函数
+  navigateToViewChildrenInfo: function() {
+    wx.navigateTo({
+      url: '/pages/View_Child_information/View_Child_information' // 跳转到查看子女信息页面
+    });
+  },
+
+  viewSettings() {
+    wx.navigateTo({
+      url: "/pages/settings/settings"
+    });
+  },
+
+  navigateToHistory() {
+    wx.navigateTo({
+      url: "/pages/historyRecords/historyRecords"
+    });
+  },
+
+  logout() {
+    wx.showModal({
+      title: "确认退出",
+      content: "您确定要退出登录吗？",
+      success: (res) => {
+        if (res.confirm) {
+          wx.showToast({
+            title: "已退出",
+            icon: "success"
+          });
+
+          // 清除本地存储中的用户信息
+          wx.removeStorageSync('userInfo');
+
+          // 清空页面上的用户信息
+          this.setData({
+            userName: '',
+            avatarUrl: '/images/0.png', // 退出后重置为默认头像
+            userInfo: null,
+            isLoggedIn: false,  // 更新为未登录状态
+            department: ''  // 清空部门信息
+          });
+
+          // 导航回首页或登录页面
+          wx.reLaunch({
+            url: '/pages/home/home'  // 修改为你希望跳转的页面
+          });
+        }
+      }
+    });
+  },
+
+  navigateToLogin() {
+    wx.navigateTo({
+      url: '/pages/login/login'  
+    });
+  },
+
+  bindEmployeeInfo() {
+    wx.navigateTo({
+      url: '/pages/bindInfo/bindInfo'  
+    });
   }
-});
-},
-
-navigateToLogin() {
-wx.navigateTo({
-  url: '/pages/login/login'  // 修改为你的登录页面路径
-});
-},
-
-bindEmployeeInfo() {
-wx.navigateTo({
-  url: '/pages/bindInfo/bindInfo'  // 绑定职工信息页面路径
-});
-}
 });

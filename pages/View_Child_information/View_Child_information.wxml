@@ -1,0 +1,17 @@
+<view class="container">
+  <view class="children-info" wx:if="{{childrenInfo.length > 0}}">
+    <view class="child-item" wx:for="{{childrenInfo}}" wx:key="_id">
+      <view class="child-name">
+        <text>子女姓名：{{item.children_name}}</text>
+      </view>
+      <view class="child-id">
+        <text>身份证号：{{item.sfz}}</text>
+      </view>
+    </view>
+  </view>
+  <view wx:else class="no-info">
+    <text>暂无子女信息</text>
+  </view>
+  <!-- 添加一个按钮 -->
+  <button class="go-to-children-page" bindtap="goToChildrenPage">添加子女信息</button>
+</view>

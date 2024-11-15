@@ -1,17 +1,24 @@
+page {
+  background-color: #f4f5f7; /* 浅灰背景色 */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+}
+
 /* 用户信息模块 */
 .user-info-module {
+  width: 90%;
   padding: 40rpx;
-  background: linear-gradient(45deg, #6EC6FF, #4B8BFF); /* 渐变背景 */
-  border-radius: 25rpx; /* 增大圆角 */
-  margin-bottom: 30rpx; /* 增加间距 */
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  margin-bottom: 30rpx;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 15rpx 30rpx rgba(0, 0, 0, 0.15); /* 更强的阴影效果 */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 80%; /* 控制宽度为屏幕的80% */
-  margin-left: auto; /* 左右居中 */
-  margin-right: auto; /* 左右居中 */
+  box-shadow: 0 8rpx 16rpx rgba(0, 0, 0, 0.1); /* 柔和阴影效果 */
 }
 
 /* 默认头像圆圈样式 */
@@ -19,13 +26,13 @@
   width: 120rpx;
   height: 120rpx;
   border-radius: 50%;
-  background-color: #B0BEC5; /* 默认背景色 */
+  background-color: #e8eaf6; /* 浅蓝背景色 */
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 20rpx;
 }
 
-/* 固定头像显示为 0.png */
 .avatar-placeholder image {
   width: 100%;
   height: 100%;
@@ -37,111 +44,79 @@
 .user-info-details {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin-left: 20rpx;
 }
 
-/* 用户名 */
 .user-info-title {
-  font-size: 40rpx; /* 增大字体 */
+  font-size: 36rpx;
   font-weight: bold;
-  color: #ffffff;
+  color: #333333;
+  margin-bottom: 10rpx;
 }
 
-/* 其他信息 */
 .user-info-subtitle {
-  font-size: 32rpx; /* 增大字体 */
-  color: #ffffff;
-  margin-top: 10rpx;
-}
-
-/* 用户信息模块点击效果 */
-.user-info-module:active {
-  transform: scale(0.98); /* 点击时缩小幅度 */
-  box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.2); /* 按下时的阴影效果 */
+  font-size: 28rpx;
+  color: #666666;
 }
 
 /* 功能模块 */
 .profile-options {
+  width: 90%;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  border-radius: 15rpx; /* 增大圆角 */
-  box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.1); /* 添加轻微的阴影效果 */
-  margin-top: 30rpx;
-  overflow: hidden; /* 避免子元素超出边界 */
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 16rpx rgba(0, 0, 0, 0.1);
+  margin-top: 20rpx;
+  overflow: hidden;
 }
 
 /* 功能按钮样式 */
 .option-item {
-  padding: 30rpx; /* 增加按钮内边距 */
-  border-bottom: 1px solid #eeeeee;
-  font-size: 36rpx; /* 增大字体 */
+  padding: 30rpx;
+  font-size: 32rpx;
   color: #333333;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  transition: background-color 0.3s, transform 0.08s ease-out, box-shadow 0.1s ease-out; /* 缩短动画时间 */
-  border-radius: 12rpx; /* 增加按钮圆角 */
+  border-bottom: 1rpx solid #f0f0f0;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-/* 按钮按下时的反馈效果 */
-.option-item:active {
-  transform: scale(0.95); /* 按下时缩小幅度变小至95% */
-  background-color: #c8c8c8; /* 按下时背景色变化 */
-  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.2); /* 按下时的阴影效果 */
-}
-
-/* 按钮最后一项无下边框 */
 .option-item:last-child {
   border-bottom: none;
 }
 
-/* 美化登录按钮 */
+/* 按钮按下时的反馈效果 */
+.option-item:active {
+  transform: scale(0.98);
+  background-color: #f7f8fa;
+}
+
+/* 特别按钮样式（登录、退出等） */
 .login-button {
-  background-color: #4CAF50; /* 绿色背景 */
-  color: #ffffff; /* 白色文字 */
-  border-radius: 12rpx; /* 圆角 */
-  font-size: 40rpx; /* 增大字体 */
-  font-weight: bold; /* 粗体 */
-  text-align: center;
-  margin-bottom: 30rpx; /* 增加按钮下边距 */
-  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.1); /* 强化阴影效果 */
-  transition: background-color 0.2s ease, transform 0.08s ease-out; /* 加快动画速度 */
-  width: 80%; /* 设置按钮宽度为 80% */
-  margin-left: auto; /* 左右居中 */
-  margin-right: auto; /* 左右居中 */
-}
-
-.login-button:active {
-  background-color: #388e3c; /* 按下时背景色变化 */
-  transform: scale(0.95); /* 按下时缩小幅度变小至95% */
-  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.2); /* 按下时的阴影效果 */
-}
-
-.login-button text {
-  line-height: 80rpx; /* 让文本垂直居中 */
-}
-
-/* 绑定职工信息按钮 */
-.bind-employee-info {
-  background-color: #2196F3; /* 蓝色背景 */
-  color: #ffffff; /* 白色文字 */
-  border-radius: 12rpx;
-  font-size: 40rpx; /* 增大字体 */
+  background-color: #4CAF50;
+  color: #ffffff;
+  font-size: 32rpx;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 30rpx;
-  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s ease, transform 0.08s ease-out; /* 加快动画速度 */
 }
 
-.bind-employee-info:active {
-  background-color: #1565C0; /* 按下时背景色变化 */
-  transform: scale(0.95); /* 按下时缩小幅度变小至95% */
-  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.2); /* 按下时阴影效果 */
+/* 退出登录按钮样式 */
+.logout-button {
+  width: 83%; /* 宽度与其他模块一致 */
+  padding: 30rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #FF5252; /* 红色背景 */
+  border-radius: 20rpx;
+  margin-top: 30rpx; /* 与上方模块保持间距 */
+  box-shadow: 0 8rpx 16rpx rgba(0, 0, 0, 0.1); /* 柔和阴影效果 */
+  text-align: center;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-.bind-employee-info text {
-  line-height: 80rpx; /* 让文本垂直居中 */
+.logout-button:active {
+  transform: scale(0.98);
+  background-color: #E53935; /* 按下时背景变深 */
 }

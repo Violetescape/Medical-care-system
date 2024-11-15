@@ -23,7 +23,7 @@
     <!-- 报销结果 -->
     <view class="step {{reimbursementStatus == 3 ? 'completed' : (reimbursementStatus == 2 ? 'failed' : '')}}">
       <view class="circle">{{reimbursementStatus == 3 ? '3' : (reimbursementStatus == 2 ? '×' : '')}}</view>
-      <text class="label">{{reimbursementStatus == 3 ? '报销成功' : (reimbursementStatus == 2 ? '报销失败' : '报销成功')}}</text>
+      <text class="label">{{reimbursementStatus == 3 ? '报销成功' : (reimbursementStatus == 2 ? '报销失败' : '')}}</text>
       <view class="check-icon" wx:if="{{reimbursementStatus == 3}}">✔</view>
       <view class="cross-icon" wx:if="{{reimbursementStatus == 2}}">✖</view>
     </view>
@@ -37,5 +37,9 @@
     <view class="detail-item"><text>类型：{{reimbursement.expenseType}}</text></view>
     <view class="detail-item"><text>备注：{{reimbursement.note}}</text></view>
     <view class="detail-item"><text>日期：{{reimbursement.date}}</text></view>
+    <!-- 当报销成功时，显示报销后还需支付的金额 -->
+    <view class="detail-item" wx:if="{{reimbursementStatus === 3 && reimbursement.Reimbursement_amount !== undefined}}">
+      <text>报销成功，报销完后还需支付{{reimbursement.Reimbursement_amount}}元</text>
+    </view>
   </view>
 </view>

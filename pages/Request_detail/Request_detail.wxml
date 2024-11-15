@@ -31,6 +31,11 @@
     <text class="detail-label">备注:</text>
     <text class="detail-value">{{requestDetails.note}}</text>
   </view>
+  <!-- 添加显示报销人员类型的view -->
+  <view class="detail-item">
+    <text class="detail-label">报销人员类型:</text>
+    <text class="detail-value">{{requestDetails.reimbursementType}}</text>
+  </view>
   <view class="button-group">
     <button bindtap="approveRequest">审批通过</button>
     <button bindtap="rejectRequest">审批不通过</button>

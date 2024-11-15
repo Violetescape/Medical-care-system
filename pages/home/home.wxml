@@ -14,6 +14,11 @@
     </swiper>
   </view>
 
+  <!-- Announcement Section -->
+  <view class="announcement">
+    <text>【公告】报销系统将于下周进行维护，请提前提交申请。</text>
+  </view>
+
   <!-- Options Section -->
   <view class="options">
     <view class="option" bindtap="goToReimbursement">
@@ -23,4 +28,7 @@
       <text>报销查询</text>
     </view>
   </view>
+
+  <!-- Custom Navbar at the Bottom -->
+  <tabbar backgroundColor="#ffffff" color="#666666" selectedColor="#4CAF50" list="{{list}}" selected="{{selected}}" />
 </view>
