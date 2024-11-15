@@ -99,7 +99,7 @@
 }
 
 .cancel-button {
-  background-color: #007acc;
+  background-color: #1365e0;
 }
 
 .manage-button {
