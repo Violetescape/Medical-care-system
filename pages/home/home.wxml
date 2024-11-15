@@ -14,6 +14,11 @@
     </swiper>
   </view>
 
+  <!-- Announcement Section -->
+  <view class="announcement">
+    <text>【公告】报销系统将于下周进行维护，请提前提交申请。</text>
+  </view>
+
   <!-- Options Section -->
   <view class="options">
     <view class="option" bindtap="goToReimbursement">
