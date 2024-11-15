@@ -1,13 +1,16 @@
 <view class="container">
+  <!-- Header -->
   <view class="header">
     <text class="header-text">消息中心</text>
   </view>
 
+  <!-- Batch Actions -->
   <view class="batch-actions" wx:if="{{batchDeleteMode}}">
     <button bindtap="deleteSelectedMessages" class="delete-selected-button">删除选中</button>
     <button bindtap="cancelBatchDelete" class="cancel-button">取消</button>
   </view>
 
+  <!-- Messages List -->
   <view class="messages-list {{batchDeleteMode ? 'batch-mode' : ''}}">
     <block wx:for="{{messages}}" wx:key="*this">
       <view class="message-item-wrapper">
@@ -31,4 +34,7 @@
     </block>
     <button class="manage-button" bindtap="enterBatchDeleteMode">管理</button>
   </view>
+
+  <!-- Tabbar Component -->
+  <tabbar selected="0"></tabbar>
 </view>

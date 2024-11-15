@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 100rpx; /* 为了给底部导航栏留出空间 */
 }
 
 .banner {
@@ -31,6 +32,21 @@
   background-color: #f0f0f0;
 }
 
+/* Custom Navbar 样式 */
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx; /* 根据需求调整高度 */
+  background-color: #4CAF50;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  font-weight: bold;
+  font-size: 32rpx;
+}
 /* 新增公告部分样式 */
 .announcement {
   width: 90%; /* 与页面整体宽度保持协调 */

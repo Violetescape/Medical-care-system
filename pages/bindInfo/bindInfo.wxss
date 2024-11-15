@@ -1,29 +1,86 @@
-.container {
-  padding: 20px;
+/* 页面背景色 */
+page {
+  background-color: #f4f5f7; /* 浅灰背景色 */
 }
 
+/* 容器样式 */
+.container {
+  padding: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 卡片（表单区块）样式 */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff; /* 卡片背景色 */
+  padding: 24rpx; /* 内边距 */
+  border-radius: 12rpx; /* 圆角 */
+  box-shadow: 0 8rpx 16rpx rgba(0, 0, 0, 0.1); /* 卡片阴影效果 */
+  width: 100%; /* 占满宽度 */
+  max-width: 600rpx; /* 最大宽度 */
+  margin-top: 20rpx; /* 上方留空 */
+}
+
+/* 标题样式 */
+.header {
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+/* 表单项样式 */
 .form-item {
-  margin-bottom: 20px;
+  margin-bottom: 20rpx;
 }
 
 .form-item text {
   font-size: 16px;
+  color: #333333; /* 深色字体 */
+  display: block;
+  margin-bottom: 8rpx; /* 标签与输入框之间的间距 */
 }
 
+/* 输入框样式 */
 .form-item input {
   width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  padding: 24rpx; /* 控制输入框内边距 */
+  font-size: 16px; /* 字体大小 */
+  line-height: 1.4; /* 行高，确保内容不被遮挡 */
+  border: 1px solid #dddddd; /* 边框颜色 */
+  border-radius: 8rpx; /* 圆角 */
+  box-sizing: border-box; /* 包括内边距在宽高计算中 */
+  outline: none; /* 去除输入框选中时的默认边框 */
+  transition: border-color 0.3s ease; /* 聚焦时边框颜色变化 */
 }
 
+/* 输入框聚焦样式 */
+.form-item input:focus {
+  border-color: #007bff; /* 聚焦时的边框颜色 */
+}
+
+/* 提交按钮样式 */
 button {
-  margin-top: 20px;
-  background-color: #007bff;
-  color: #fff;
+  padding: 14rpx;
+  background-color: #007acc; /* 按钮背景色 */
+  color: #ffffff; /* 按钮文字颜色 */
   border: none;
-  padding: 10px;
-  border-radius: 5px;
+  border-radius: 8rpx; /* 圆角 */
+  font-size: 28rpx; /* 字体大小 */
+  text-align: center;
+  cursor: pointer;
   width: 100%;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1); /* 按钮阴影 */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* 按钮按下效果 */
+button:active {
+  background-color: #0056b3; /* 按下时背景色变深 */
+  transform: scale(0.98); /* 按下时轻微缩小 */
 }

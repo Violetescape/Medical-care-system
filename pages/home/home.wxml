@@ -28,4 +28,7 @@
       <text>报销查询</text>
     </view>
   </view>
+
+  <!-- Custom Navbar at the Bottom -->
+  <tabbar backgroundColor="#ffffff" color="#666666" selectedColor="#4CAF50" list="{{list}}" selected="{{selected}}" />
 </view>
