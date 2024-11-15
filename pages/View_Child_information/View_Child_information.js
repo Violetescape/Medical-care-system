@@ -1,4 +1,3 @@
-// pages/View_Child_information/View_Child_information.js
 const db = wx.cloud.database(); // 获取云开发数据库实例
 const familyCollection = db.collection('Family'); // 假设子女数据在 'Family' 集合中
 
@@ -46,6 +45,13 @@ Page({
           icon: 'none'
         });
       }
+    });
+  },
+
+  // 跳转到子女信息页面
+  goToChildrenPage: function () {
+    wx.navigateTo({
+      url: '/pages/Children/Children'
     });
   }
 });

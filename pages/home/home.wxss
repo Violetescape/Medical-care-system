@@ -46,6 +46,7 @@
   z-index: 999;
   font-weight: bold;
   font-size: 32rpx;
+}
 /* 新增公告部分样式 */
 .announcement {
   width: 90%; /* 与页面整体宽度保持协调 */

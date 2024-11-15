@@ -10,4 +10,8 @@
   </view>
   
   <button bindtap="submitInfo">绑定</button>
+  <!-- 添加一个用于显示绑定成功的提示信息的视图 -->
+  <view wx:if="{{bindSuccess}}" class="bind-success">
+    <text>绑定成功</text>
+  </view>
 </view>

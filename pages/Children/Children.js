@@ -1,7 +1,8 @@
 Page({
     data: {
       childName: '', // 存储孩子姓名
-      childID: '' // 存储孩子身份证号
+      childID: '', // 存储孩子身份证号
+      bindSuccess: false, // 控制绑定成功提示的显示
     },
   
     // 绑定孩子姓名输入
@@ -55,10 +56,21 @@ Page({
         data: familyData,
         success: (resAdd) => {
           console.log('添加用户信息成功', resAdd);
+          // 设置绑定成功提示为 true
+          this.setData({ bindSuccess: true });
           wx.showToast({
             title: '绑定成功',
-            icon: 'success'
+            icon: 'success',
+            duration: 2000
           });
+  
+          // 延迟2秒后返回上一页
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 1
+            });
+          }, 2000);
+  
           // 清空输入
           this.setData({
             childName: '',
