@@ -1,0 +1,38 @@
+.tabbar {
+  position: fixed; /* 固定在页面底部 */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: #ffffff;
+  padding: 10rpx 0;
+  border-top: 1px solid #eaeaea;
+  z-index: 1000; /* 确保导航栏层级较高 */
+}
+
+.tabbar-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24rpx;
+  color: #666666; /* 默认字体颜色 */
+}
+
+.tabbar-icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.tabbar-text {
+  margin-top: 4rpx;
+}
+
+.tabbar-item.selected .tabbar-text {
+  color: #4CAF50; /* 选中时字体颜色 */
+}
+
+.tabbar-item.selected .tabbar-icon {
+  /* 可以考虑在选中状态下给图标添加不同的样式 */
+}
