@@ -1,48 +1,42 @@
 <view class="container">
-  <!-- 用户信息模块，位于最上方 -->
+  <!-- 用户信息模块 -->
   <button wx:if="{{isLoggedIn}}" class="user-info-module" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-    
     <view class="avatar-placeholder">
-      <!-- 固定头像 -->
       <image class="avatar" src="/images/0.png" mode="aspectFill"></image>
     </view>
-    
     <view class="user-info-details">
       <text class="user-info-title">{{userName}}</text>
-      <!-- 显示职工部门 -->
-      <text class="user-info-subtitle">{{department || '未设置部门'}}</text> <!-- 如果没有设置部门显示"未设置部门" -->
+      <text class="user-info-subtitle">{{department || '未设置部门'}}</text>
     </view>
   </button>
 
   <!-- Profile Options -->
   <view class="profile-options">
     <view wx:if="{{!userInfo}}" class="option-item login-button" bindtap="navigateToLogin">
-      <text>登录</text> <!-- 登录按钮 -->
+      <text>登录</text>
     </view>
 
     <view wx:else class="option-item" bindtap="navigateToHistory">
-      <text>报销历史</text> <!-- 报销历史 -->
+      <text>报销历史</text>
     </view>
 
     <view wx:if="{{isLoggedIn}}" class="option-item" bindtap="bindEmployeeInfo">
-      <text>绑定职工信息</text> <!-- 绑定职工信息按钮 -->
+      <text>绑定职工信息</text>
     </view>
 
-    <!-- 新增绑定子女信息选项 -->
     <view wx:if="{{isLoggedIn}}" class="option-item" bindtap="navigateToChildrenInfo">
       <text>绑定子女信息</text>
     </view>
 
     <view class="option-item" bindtap="navigateToViewChildrenInfo">
-     <text>查看子女信息</text> <!-- 查看子女信息按钮 -->
+      <text>查看子女信息</text>
     </view>
 
     <view class="option-item" bindtap="viewSettings">
-      <text>设置</text> <!-- 设置按钮 -->
-    </view>
-
-    <view class="option-item" bindtap="logout">
-      <text>退出登录</text> <!-- 退出登录按钮 -->
+      <text>设置</text>
     </view>
   </view>
+    <view class="option-item logout-button" bindtap="logout">
+      <text>退出登录</text>
+    </view>
 </view>
