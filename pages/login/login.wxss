@@ -74,7 +74,7 @@
     background-color: #007bff; /* 深蓝色背景 */
     color: white;
     border: none;
-    border-radius: 5px; /* 圆角按钮 */
+    border-radius: 50px; /* 圆角按钮 */
     font-size: 18px;
     font-weight: bold;
     cursor: pointer; /* 鼠标悬停时显示指针 */
