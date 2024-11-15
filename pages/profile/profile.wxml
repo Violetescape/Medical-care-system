@@ -28,8 +28,9 @@
       <text>绑定子女信息</text>
     </view>
 
-    <view class="option-item" bindtap="navigateToViewChildrenInfo">
-      <text>查看子女信息</text>
+    <!-- 修改后的查看子女信息按钮，仅在用户登录后显示 -->
+    <view wx:if="{{isLoggedIn}}" class="option-item" bindtap="navigateToViewChildrenInfo">
+      <text>查看子女信息</text> <!-- 查看子女信息按钮 -->
     </view>
 
     <view class="option-item" bindtap="viewSettings">
