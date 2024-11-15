@@ -57,7 +57,14 @@ Page({
           console.log('添加用户信息成功', resAdd);
           wx.showToast({
             title: '绑定成功',
-            icon: 'success'
+            icon: 'success',
+            duration: 2000, // 显示2秒
+            complete: () => {
+              // 跳转到查看子女信息页面
+              wx.navigateTo({
+                url: '/pages/View_Child_information/View_Child_information'
+              });
+            }
           });
           // 清空输入
           this.setData({

@@ -97,13 +97,6 @@ Page({
     }
   },
 
-  // 点击“绑定子女信息”时的处理函数
-  navigateToChildrenInfo: function() {
-    wx.navigateTo({
-      url: '/pages/Children/Children' // 跳转到绑定子女信息页面
-    });
-  },
-
   // 新增的查看子女信息的处理函数
   navigateToViewChildrenInfo: function() {
     wx.navigateTo({
