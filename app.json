@@ -29,21 +29,27 @@
   },
   "tabBar": {
     "color": "#999999",
-    "selectedColor": "#0000ff",
+    "selectedColor": "#999999",
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/messages/messages",
-        "text": "消息"
+        "text": "消息",
+        "iconPath": "images/messages.png", 
+        "selectedIconPath": "images/messages-active.png" 
       },
       {
         "pagePath": "pages/home/home",
-        "text": "主页"
+        "text": "主页",
+        "iconPath": "images/home.png", 
+        "selectedIconPath": "images/home_active.png" 
       },
       {
         "pagePath": "pages/profile/profile",
-        "text": "我的"
+        "text": "我的",
+        "iconPath": "images/profile.png", 
+        "selectedIconPath": "images/profile_active.png" 
       }
     ]
   }
