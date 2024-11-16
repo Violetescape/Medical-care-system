@@ -20,22 +20,23 @@
     "pages/historyRecords/historyRecords",
     "pages/settings/settings"
   ],
-  // "tabBar": {
-  //   "list": [
-  //     {
-  //       "pagePath": "pages/messages/messages",
-  //       "text": "消息"
-  //     },
-  //     {
-  //       "pagePath": "pages/home/home",
-  //       "text": "主页"
-  //     },
-  //     {
-  //       "pagePath": "pages/profile/profile",
-  //       "text": "我的"
-  //     }
-  //   ]
-  // },
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/messages/messages",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
   "window": {
     "navigationBarBackgroundColor": "#4CAF50", 
     "navigationBarTextStyle": "white",       

@@ -106,7 +106,7 @@ page {
 }
 
 .manage-button {
-  padding: 10px 16px;
+  padding: 10px;
   font-size: 16px;
   background-color: #ff9500;
   color: #ffffff;
