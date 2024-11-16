@@ -45,5 +45,15 @@
         "selectedIconPath": "images/profile_active.png" 
       }
     ]
-  }
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#4CAF50", 
+    "navigationBarTextStyle": "white",       
+    "navigationBarTitleText": "医疗小程序",   
+    "backgroundColor": "#eeeeee",          
+    "backgroundTextStyle": "dark"          
+  },
+  "style": "v2",                     
+  "sitemapLocation": "sitemap.json"      
 }
+
