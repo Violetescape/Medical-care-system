@@ -1,0 +1,4 @@
+/* app.wxss */
+.tab-bar-item {
+    font-size: 160px; /* 你可以根据需要修改这个值 */
+  }
