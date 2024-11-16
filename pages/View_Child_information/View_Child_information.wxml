@@ -1,4 +1,3 @@
-<!-- pages/View_Child_information/View_Child_information.wxml -->
 <view class="container">
   <view class="children-info" wx:if="{{childrenInfo.length > 0}}">
     <view class="child-item" wx:for="{{childrenInfo}}" wx:key="_id">
@@ -13,4 +12,6 @@
   <view wx:else class="no-info">
     <text>暂无子女信息</text>
   </view>
+  <!-- 添加一个按钮 -->
+  <button class="go-to-children-page" bindtap="goToChildrenPage">添加子女信息</button>
 </view>

@@ -29,4 +29,13 @@ page {
     padding: 10px;
     border-radius: 5px;
     width: 100%;
+    cursor: pointer;
+  }
+  
+  /* 添加绑定成功的提示样式 */
+  .bind-success {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #4CAF50; /* 绿色，表示成功 */
   }

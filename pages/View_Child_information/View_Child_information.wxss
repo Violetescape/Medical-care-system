@@ -31,3 +31,17 @@ page {
     color: #888;
     margin-top: 50px;
   }
+  
+  /* 添加按钮样式 */
+  .go-to-children-page {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #007aff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+  }
