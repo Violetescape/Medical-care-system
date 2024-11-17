@@ -93,8 +93,8 @@ Page({
       // 更新子女报销规则
       db.collection('Reimbursement_rules').doc('7f296b216735a649011d91ab6cba44a8').update({
         data: {
-          Amount_reimbursement: this.data.newChildrenAmountReimbursement,
-          Excess_reimbursement_ratio: this.data.newChildrenExcessReimbursementRatio,
+          Children_amount: this.data.newChildrenAmountReimbursement,
+          Children_ratio: this.data.newChildrenExcessReimbursementRatio,
         },
         success: res => {
           console.log('子女报销规则更新成功');

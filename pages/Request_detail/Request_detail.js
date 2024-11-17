@@ -52,18 +52,23 @@ approveRequest: function() {
     });
   },
   
-  // 计算并设置Reimbursement_amount
-  calculateAndSetReimbursementAmount: function() {
+ // 计算并设置Reimbursement_amount
+calculateAndSetReimbursementAmount: function() {
     const db = wx.cloud.database();
     // 获取报销申请详情
     db.collection('Reimbursement_Requests').doc(this.data.requestId).get().then(res => {
       const requestDetails = res.data;
-      // 计算Reimbursement_amount
+      // 确保所有参与计算的值都是数字类型
+      const amount = Number(requestDetails.amount) || 0;
+      const successAmount = Number(requestDetails.Success_Amount) || 0;
+      const successRatio = Number(requestDetails.Success_Ratio) || 0;
+  
+      // 计算Reimbursement_amount，确保结果为整数并向上取整
       let reimbursementAmount;
-      if (requestDetails.amount < requestDetails.Success_Amount) {
+      if (amount < successAmount) {
         reimbursementAmount = 0;
       } else {
-        reimbursementAmount = (requestDetails.amount - requestDetails.Success_Amount) * (1 - requestDetails.Success_Ratio / 100);
+        reimbursementAmount = Math.ceil((amount - successAmount) * (1 - successRatio / 100));
       }
   
       // 更新数据库中的Reimbursement_amount
